@@ -8,6 +8,7 @@
   import InscriptionPreview from './components/InscriptionPreview.svelte';
   import ReceiveAddressInput from './components/ReceiveAddressInput.svelte';
   import OrderDetails from './components/OrderDetails.svelte';
+  import PaymentStatus from './components/PaymentStatus.svelte';
 </script>
 
 <!-- <DarkMode /> -->
@@ -16,11 +17,18 @@
 >
   <Heading />
   <Card class="flex items-center gap-2">
-    <InputTabs />
-    <InscriptionPreview />
+    {#if false}
+      <InputTabs />
+    {:else}
+      <InscriptionPreview />
+    {/if}
     <FeeTabs />
-    <ReceiveAddressInput />
-    <OrderDetails />
+    {#if true}
+      <ReceiveAddressInput />
+    {:else}
+      <OrderDetails />
+    {/if}
+    <PaymentStatus />
   </Card>
 </div>
 

@@ -16,7 +16,7 @@
       For help send your order details to support@foreverinbitcoin.com
     </div>
     <div class="flex gap-2 justify-center">
-      <Button size="xs"
+      <Button outline size="xs"
         ><svg
           aria-hidden="true"
           class="-ml-0.5 mr-2 h-4 w-4"
