@@ -2,10 +2,10 @@
   import { DarkMode } from 'flowbite-svelte';
   import { Card } from 'flowbite-svelte';
   // import FilePond from './components/FilePond.svelte';
-  import FeeTab from './components/InputTabs.svelte';
   import Heading from './components/Heading.svelte';
-  import InputTabs from './components/InputTabs.svelte';
-  import FeeTabs from './components/FeeTabs.svelte';
+  import InputTabs from './components/inputs/InputTabs.svelte';
+  import FeeTabs from './components/fees/FeeTabs.svelte';
+  import InscriptionPreview from './components/InscriptionPreview.svelte';
 </script>
 
 <!-- <DarkMode /> -->
@@ -15,6 +15,7 @@
   <Heading />
   <Card class="flex items-center gap-2">
     <InputTabs />
+    <InscriptionPreview />
     <FeeTabs />
   </Card>
 </div>

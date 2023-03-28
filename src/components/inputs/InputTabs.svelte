@@ -1,8 +1,8 @@
 <script>
   import { Tabs, TabItem } from 'flowbite-svelte';
-  import ImageInput from './inputs/ImageInput.svelte';
-  import SatsInput from './inputs/SatsInput.svelte';
-  import TextInput from './inputs/TextInput.svelte';
+  import ImageInput from './ImageInput.svelte';
+  import SatsInput from './SatsInput.svelte';
+  import TextInput from './TextInput.svelte';
 </script>
 
 <Tabs style="underline">

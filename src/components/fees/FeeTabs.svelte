@@ -1,9 +1,9 @@
 <script>
   import { Tabs, TabItem, Heading } from 'flowbite-svelte';
-  import FeeTab from './fees/FeeTab.svelte';
-  import ImageInput from './inputs/ImageInput.svelte';
-  import SatsInput from './inputs/SatsInput.svelte';
-  import TextInput from './inputs/TextInput.svelte';
+  import FeeTab from './FeeTab.svelte';
+  import ImageInput from '../inputs/ImageInput.svelte';
+  import SatsInput from '../inputs/SatsInput.svelte';
+  import TextInput from '../inputs/TextInput.svelte';
 </script>
 
 <Heading class="text-xl">Inscription Priority</Heading>
