@@ -1,6 +1,8 @@
 <script>
   import { Tabs, TabItem } from 'flowbite-svelte';
-  import ImageInput from './ImageInput.svelte';
+  import ImageInput from './inputs/ImageInput.svelte';
+  import SatsInput from './inputs/SatsInput.svelte';
+  import TextInput from './inputs/TextInput.svelte';
 </script>
 
 <Tabs style="underline">
@@ -36,10 +38,7 @@
       >
       Text
     </div>
-    <p class="text-sm text-gray-500 dark:text-gray-400">
-      <b>Dashboard:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
+    <TextInput />
   </TabItem>
   <TabItem>
     <div slot="title" class="flex items-center gap-2">
@@ -55,9 +54,6 @@
       >
       .sats
     </div>
-    <p class="text-sm text-gray-500 dark:text-gray-400">
-      <b>Settings:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
+    <SatsInput />
   </TabItem>
 </Tabs>
