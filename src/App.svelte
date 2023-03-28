@@ -6,6 +6,7 @@
   import InputTabs from './components/inputs/InputTabs.svelte';
   import FeeTabs from './components/fees/FeeTabs.svelte';
   import InscriptionPreview from './components/InscriptionPreview.svelte';
+  import ReceiveAddressInput from './components/inputs/ReceiveAddressInput.svelte';
 </script>
 
 <!-- <DarkMode /> -->
@@ -17,6 +18,7 @@
     <InputTabs />
     <InscriptionPreview />
     <FeeTabs />
+    <ReceiveAddressInput />
   </Card>
 </div>
 
