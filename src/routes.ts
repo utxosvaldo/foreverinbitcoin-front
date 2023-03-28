@@ -1,6 +1,6 @@
-import Home from "./components/Home.svelte";
+import Home from "./components/Heading.svelte";
 import Article from "./components/Article.svelte";
-import About from "./components/About.svelte";
+import About from "./components/samples/About.svelte";
 import NotFound from "./components/NotFound.svelte";
 
 export const routes = {
