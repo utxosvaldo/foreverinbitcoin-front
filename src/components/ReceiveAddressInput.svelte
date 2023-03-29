@@ -2,7 +2,6 @@
   import { Button, Card, Span } from 'flowbite-svelte';
   import { bech32, bech32m } from 'bech32';
   import { receiveAddress } from '../stores';
-  import Heading from './Heading.svelte';
 
   let inputAddress = '';
   // let receiveAddress = '';
@@ -77,10 +76,12 @@
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >Receive address for your inscription:</label
       >
+      <!-- <Button color={undefined} shadow={null} class="bg-white border-0"> -->
       <Card>
         <Span class="font-mono text-xs font-light">{receiveAddressFirst}</Span>
         <Span class="font-mono text-xs font-light">{receiveAddressSecond}</Span>
       </Card>
+      <!-- </Button> -->
     </div>
   {/if}
 
