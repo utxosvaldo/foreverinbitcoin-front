@@ -13,15 +13,6 @@
   import { fileName } from './stores';
 
   $: showInscriptionPreview = $fileName !== '';
-
-  // fileName.subscribe(value => {
-  //   if (value !== '') {
-  //     showInscriptionPreview = true;
-  //   }
-  //   else {
-
-  //   }
-  // });
 </script>
 
 <!-- <DarkMode /> -->
