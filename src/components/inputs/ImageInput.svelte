@@ -47,7 +47,7 @@
 </script>
 
 <div class="grid justify-items-center">
-  <Label class="mb-2 py-2" for="larg_size">Large file input</Label>
+  <Label class="mb-2 py-2" for="larg_size">Upload your image file</Label>
   <Fileupload id="larg_size" size="lg" />
   <Button
     outline
