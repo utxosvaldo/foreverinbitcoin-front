@@ -46,6 +46,7 @@ const defaultPriorityFees: PriorityFees = {
 }
 
 export const priorityFees = writable<PriorityFees>(defaultPriorityFees)
+export const feePriority = writable<String>("high")
 // fee_priority: str = "High"
 
 //     # From confirmation

@@ -7,12 +7,16 @@
     ArrowUpOnSquare
   } from 'svelte-heros-v2';
 
-  import { priorityFees } from '../../stores';
+  import { priorityFees, feePriority } from '../../stores';
+
+  const setLow = () => ($feePriority = 'low');
+  const setMedium = () => ($feePriority = 'medium');
+  const setHigh = () => ($feePriority = 'high');
 </script>
 
 <Heading class="text-xl">Inscription Priority</Heading>
 <Tabs style="underline">
-  <TabItem open>
+  <TabItem on:click={setLow}>
     <div slot="title" class="flex items-center gap-2">
       <Square3Stack3d variation="solid" />
 
@@ -20,17 +24,25 @@
     </div>
 
     <!-- <div class="flex"> -->
-    <FeeTab feeRateEstimate={$priorityFees.low} timeEstimate={'~1 hour'} />
+    <FeeTab
+      feeRateEstimate={$priorityFees.low}
+      timeEstimate={'~1 hour'}
+      rateUSD={$priorityFees.rateUSD}
+    />
     <!-- </div> -->
   </TabItem>
-  <TabItem>
+  <TabItem on:click={setMedium}>
     <div slot="title" class="flex items-center gap-2">
       <Square2Stack variation="solid" />
       Medium
     </div>
-    <FeeTab feeRateEstimate={$priorityFees.medium} timeEstimate={'~30 min'} />
+    <FeeTab
+      feeRateEstimate={$priorityFees.medium}
+      timeEstimate={'~30 min'}
+      rateUSD={$priorityFees.rateUSD}
+    />
   </TabItem>
-  <TabItem>
+  <TabItem open on:click={setHigh}>
     <div slot="title" class="flex items-center gap-2">
       <ArrowUpOnSquare variation="solid" />
       High
@@ -38,6 +50,7 @@
     <FeeTab
       feeRateEstimate={$priorityFees.high}
       timeEstimate={'Next Block (10 min)'}
+      rateUSD={$priorityFees.rateUSD}
     />
   </TabItem>
 </Tabs>

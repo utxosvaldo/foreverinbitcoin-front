@@ -1,14 +1,24 @@
 <script lang="ts">
   import {
+    Badge,
     Table,
     TableBody,
     TableBodyCell,
     TableBodyRow
   } from 'flowbite-svelte';
+  import { Clock } from 'svelte-heros-v2';
   import type { FeeRateEstimate } from '../../interfaces/priorityFees';
 
   export let feeRateEstimate: FeeRateEstimate;
   export let timeEstimate: string;
+  export let rateUSD: number;
+
+  $: networkFeeUSD =
+    Math.round((feeRateEstimate.networkFee * rateUSD) / 1e6) / 100;
+  $: serviceFeeUSD =
+    Math.round((feeRateEstimate.serviceFee * rateUSD) / 1e6) / 100;
+  $: totalAmountUSD =
+    Math.round((feeRateEstimate.totalAmount * rateUSD) / 1e6) / 100;
 </script>
 
 <Table hoverable>
@@ -31,7 +41,7 @@
       >
       <TableBodyCell class="text-end">
         <div class="text-lg">{feeRateEstimate.networkFee} sats</div>
-        <div class="text-xs">~24USD</div>
+        <div class="text-xs">~{networkFeeUSD}USD</div>
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
@@ -40,7 +50,7 @@
       >
       <TableBodyCell class="text-end">
         <div class="text-lg">{feeRateEstimate.serviceFee} sats</div>
-        <div class="text-xs">~24USD</div>
+        <div class="text-xs">~{serviceFeeUSD}USD</div>
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
@@ -49,7 +59,7 @@
       >
       <TableBodyCell class="text-3xl text-end">
         <div class="text-lg">{feeRateEstimate.totalAmount} sats</div>
-        <div class="text-xs">~24USD</div>
+        <div class="text-xs">~{totalAmountUSD}USD</div>
       </TableBodyCell>
     </TableBodyRow>
   </TableBody>

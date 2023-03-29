@@ -11,6 +11,7 @@ export interface PriorityFees {
     low: FeeRateEstimate;
     medium: FeeRateEstimate;
     high: FeeRateEstimate;
+    rateUSD: number;
 }
 
 export interface FeeRateEstimate {
@@ -189,6 +190,7 @@ const typeMap: any = {
         { json: "low", js: "low", typ: r("High") },
         { json: "medium", js: "medium", typ: r("High") },
         { json: "high", js: "high", typ: r("High") },
+        { json: "rateUSD", js: "rateUSD", typ: 0 },
     ], false),
     "High": o([
         { json: "feeRate", js: "feeRate", typ: 0 },
