@@ -29,11 +29,13 @@
   <Card class="flex items-center gap-2">
     {#if showInscriptionPreview}
       <InscriptionPreview src={$fileName} />
+      {#if true}
+        <FeeTabs />
+      {/if}
     {:else}
       <InputTabs />
     {/if}
 
-    <FeeTabs />
     {#if true}
       <ReceiveAddressInput />
     {:else}
