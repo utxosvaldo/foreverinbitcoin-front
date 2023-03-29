@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DarkMode } from 'flowbite-svelte';
+  import { DarkMode, Span } from 'flowbite-svelte';
   import { Card } from 'flowbite-svelte';
   // import FilePond from './components/FilePond.svelte';
   import Heading from './components/Heading.svelte';
@@ -9,6 +9,16 @@
   import ReceiveAddressInput from './components/ReceiveAddressInput.svelte';
   import OrderDetails from './components/OrderDetails.svelte';
   import PaymentStatus from './components/PaymentStatus.svelte';
+
+  import { fileName } from './stores';
+
+  let showInscriptionPreview;
+
+  fileName.subscribe(value => {
+    if (value !== '') {
+      showInscriptionPreview = true;
+    }
+  });
 </script>
 
 <!-- <DarkMode /> -->
@@ -17,11 +27,12 @@
 >
   <Heading />
   <Card class="flex items-center gap-2">
-    {#if false}
-      <InputTabs />
+    {#if showInscriptionPreview}
+      <InscriptionPreview src={$fileName} />
     {:else}
-      <InscriptionPreview />
+      <InputTabs />
     {/if}
+
     <FeeTabs />
     {#if true}
       <ReceiveAddressInput />
