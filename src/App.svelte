@@ -12,13 +12,16 @@
 
   import { fileName } from './stores';
 
-  let showInscriptionPreview;
+  $: showInscriptionPreview = $fileName !== '';
 
-  fileName.subscribe(value => {
-    if (value !== '') {
-      showInscriptionPreview = true;
-    }
-  });
+  // fileName.subscribe(value => {
+  //   if (value !== '') {
+  //     showInscriptionPreview = true;
+  //   }
+  //   else {
+
+  //   }
+  // });
 </script>
 
 <!-- <DarkMode /> -->
