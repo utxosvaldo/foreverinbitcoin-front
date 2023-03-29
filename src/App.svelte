@@ -27,8 +27,8 @@
 >
   <Heading />
   <Card class="flex items-center gap-2">
-    <!-- {#if showInscriptionPreview} -->
-    {#if false}
+    {#if showInscriptionPreview}
+      <!-- {#if true} -->
       <InscriptionPreview src={$fileName} />
       {#if true}
         <FeeTabs />
@@ -37,12 +37,14 @@
       <InputTabs />
     {/if}
 
-    {#if false}
+    {#if true}
       <ReceiveAddressInput />
     {:else}
       <OrderDetails />
     {/if}
-    <PaymentStatus />
+    {#if false}
+      <PaymentStatus />
+    {/if}
   </Card>
 </div>
 

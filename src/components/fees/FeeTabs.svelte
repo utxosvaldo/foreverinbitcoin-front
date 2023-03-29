@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { Tabs, TabItem, Heading } from 'flowbite-svelte';
   import FeeTab from './FeeTab.svelte';
   import {
@@ -6,6 +6,8 @@
     Square2Stack,
     ArrowUpOnSquare
   } from 'svelte-heros-v2';
+
+  import { priorityFees } from '../../stores';
 </script>
 
 <Heading class="text-xl">Inscription Priority</Heading>
@@ -18,7 +20,7 @@
     </div>
 
     <!-- <div class="flex"> -->
-    <FeeTab />
+    <FeeTab feeRateEstimate={$priorityFees.low} timeEstimate={'~1 hour'} />
     <!-- </div> -->
   </TabItem>
   <TabItem>
@@ -26,13 +28,16 @@
       <Square2Stack variation="solid" />
       Medium
     </div>
-    <FeeTab />
+    <FeeTab feeRateEstimate={$priorityFees.medium} timeEstimate={'~30 min'} />
   </TabItem>
   <TabItem>
     <div slot="title" class="flex items-center gap-2">
       <ArrowUpOnSquare variation="solid" />
       High
     </div>
-    <FeeTab />
+    <FeeTab
+      feeRateEstimate={$priorityFees.high}
+      timeEstimate={'Next Block (10 min)'}
+    />
   </TabItem>
 </Tabs>

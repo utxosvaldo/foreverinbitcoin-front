@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-
+// import { PriorityFees, FeeRateEstimate } from './interfaces/priorityFees'
 // Base vars
 export const text = writable<string>("")
 
@@ -18,6 +18,34 @@ export const fileName = writable<string>("")
 // is_invalid_address: bool = False
 
 // priority_fees: dict = PriorityFeeEstimates().dict()
+
+const defaultLowFeeRateEstimate: FeeRateEstimate = {
+    feeRate: 3,
+    networkFee: 30000,
+    serviceFee: 25000,
+    totalAmount: 55000
+}
+const defaultMediumFeeRateEstimate: FeeRateEstimate = {
+    feeRate: 5,
+    networkFee: 50000,
+    serviceFee: 25000,
+    totalAmount: 75000
+}
+const defaultHighFeeRateEstimate: FeeRateEstimate = {
+    feeRate: 10,
+    networkFee: 100000,
+    serviceFee: 25000,
+    totalAmount: 125000
+}
+
+const defaultPriorityFees: PriorityFees = {
+    low: defaultLowFeeRateEstimate,
+    medium: defaultMediumFeeRateEstimate,
+    high: defaultHighFeeRateEstimate
+
+}
+
+export const priorityFees = writable<PriorityFees>(defaultPriorityFees)
 // fee_priority: str = "High"
 
 //     # From confirmation

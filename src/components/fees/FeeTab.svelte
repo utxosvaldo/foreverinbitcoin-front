@@ -1,34 +1,36 @@
-<script>
-  import { Card } from 'flowbite-svelte';
-
+<script lang="ts">
   import {
     Table,
     TableBody,
     TableBodyCell,
-    TableBodyRow,
-    TableHead,
-    TableHeadCell
+    TableBodyRow
   } from 'flowbite-svelte';
+  import type { FeeRateEstimate } from '../../interfaces/priorityFees';
+
+  export let feeRateEstimate: FeeRateEstimate;
+  export let timeEstimate: string;
 </script>
 
 <Table hoverable>
-  <TableBody class="divide-y">
+  <TableBody>
     <TableBodyRow>
       <TableBodyCell><span class="font-extrabold">Time:</span></TableBodyCell>
-      <TableBodyCell class="text-end">Next Block (10min)</TableBodyCell>
+      <TableBodyCell class="text-end">{timeEstimate}</TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
       <TableBodyCell
         ><span class="font-extrabold">Fee rate:</span></TableBodyCell
       >
-      <TableBodyCell class="text-end">10 sats/vB</TableBodyCell>
+      <TableBodyCell class="text-end"
+        >{feeRateEstimate.feeRate} sats/vB</TableBodyCell
+      >
     </TableBodyRow>
     <TableBodyRow>
       <TableBodyCell
         ><span class="font-extrabold">Network fee:</span></TableBodyCell
       >
       <TableBodyCell class="text-end">
-        <div class="text-lg">45,000 sats</div>
+        <div class="text-lg">{feeRateEstimate.networkFee} sats</div>
         <div class="text-xs">~24USD</div>
       </TableBodyCell>
     </TableBodyRow>
@@ -37,7 +39,7 @@
         ><span class="font-extrabold">Service fee:</span></TableBodyCell
       >
       <TableBodyCell class="text-end">
-        <div class="text-lg">25,000 sats</div>
+        <div class="text-lg">{feeRateEstimate.serviceFee} sats</div>
         <div class="text-xs">~24USD</div>
       </TableBodyCell>
     </TableBodyRow>
@@ -46,7 +48,7 @@
         ><span class="text-3xl font-black">Total:</span></TableBodyCell
       >
       <TableBodyCell class="text-3xl text-end">
-        <div class="text-lg">70,000 sats</div>
+        <div class="text-lg">{feeRateEstimate.totalAmount} sats</div>
         <div class="text-xs">~24USD</div>
       </TableBodyCell>
     </TableBodyRow>
