@@ -27,7 +27,7 @@
   async function estimateFees() {
     const requestData = {
       order_type: 'image',
-      file_name: ''
+      file_name: $fileName
     };
 
     console.log(requestData);

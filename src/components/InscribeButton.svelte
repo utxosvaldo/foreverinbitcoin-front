@@ -15,7 +15,7 @@
 
   async function createOrder() {
     const requestData = {
-      fileName: $fileName,
+      filename: $fileName,
       orderType: 'image',
       receiveAddress: $receiveAddress,
       receiveAddressType: 'segwit',
