@@ -1,9 +1,19 @@
 <script lang="ts">
-  import { Button, Card, Helper, Span, Label, Input } from 'flowbite-svelte';
+  import {
+    Button,
+    Card,
+    Helper,
+    Span,
+    Label,
+    Input,
+    Alert,
+    P
+  } from 'flowbite-svelte';
   import { bech32, bech32m } from 'bech32';
   import { ArrowLeftOnRectangle, Check } from 'svelte-heros-v2';
   import { receiveAddress, fileName } from '../stores';
   import FocusedAddressInput from './FocusedAddressInput.svelte';
+  import ValidatedReceiveAddress from './ValidatedReceiveAddress.svelte';
 
   let inputAddress = '';
   let showInvalidAddressAlert = false;
@@ -34,6 +44,7 @@
         isReceiveAddressSet = true;
       } catch (error) {
         console.log(error);
+        $receiveAddress = '';
         showInvalidAddressAlert = true;
         isReceiveAddressSet = false;
       }
@@ -106,19 +117,20 @@
     {/if}
   {:else}
     <!-- Show validated address in button -->
-    <Label class="block space-y-2">
-      <span class="font-bold">Receive address for your inscription</span>
-    </Label>
-    <Button
-      outline
-      color="purple"
-      class="mt-3 bg-purple-50 hover:bg-purple-50"
+    <div
       on:click={() => (isReceiveAddressSet = false)}
+      on:keydown={() => (isReceiveAddressSet = false)}
     >
-      <div class="font-thin font-mono text-xs">
-        <Span class="block">{receiveAddressFirst}</Span>
-        <Span class="block">{receiveAddressSecond}</Span>
-      </div>
-    </Button>
+      <Alert
+        color="purple"
+        class="mt-5"
+        id="screenshotDiv"
+        on:click={() => (isReceiveAddressSet = false)}
+      >
+        <div slot="extra">
+          <ValidatedReceiveAddress />
+        </div>
+      </Alert>
+    </div>
   {/if}
 </div>

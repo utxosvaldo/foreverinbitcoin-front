@@ -16,6 +16,6 @@
 
 <img {src} class="rounded drop-shadow-lg" alt="Not found" />
 
-<Button size="xs" color="red" class="mb-5" on:click={cancelPreview}
+<Button outline size="xs" color="purple" class="mb-5" on:click={cancelPreview}
   >Cancel</Button
 >
