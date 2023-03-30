@@ -14,6 +14,7 @@ export const fileName = writable<string>("")
 // filename: str = ""
 // is_invalid_file_size: bool = False
 export const receiveAddress = writable<string>("")
+export const focusedAddressInput = writable<boolean>(false)
 // receive_address: str = ""
 // receive_address_type: str = ""
 // is_receive_address_set: bool = False

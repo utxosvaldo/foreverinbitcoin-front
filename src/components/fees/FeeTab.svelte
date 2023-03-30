@@ -43,7 +43,7 @@
         <div class="text-lg">
           {feeRateEstimate.networkFee.toLocaleString('en-US')} sats
         </div>
-        <div class="text-xs">~{networkFeeUSD}USD</div>
+        <div class="text-xs">~{networkFeeUSD} USD</div>
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
@@ -54,7 +54,7 @@
         <div class="text-lg">
           {feeRateEstimate.serviceFee.toLocaleString('en-US')} sats
         </div>
-        <div class="text-xs">~{serviceFeeUSD}USD</div>
+        <div class="text-xs">~{serviceFeeUSD} USD</div>
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
@@ -62,10 +62,10 @@
         ><span class="text-3xl font-black">Total:</span></TableBodyCell
       >
       <TableBodyCell class="text-3xl text-end">
-        <div class="text-lg">
+        <div class="text-xl font-extrabold">
           {feeRateEstimate.totalAmount.toLocaleString('en-US')} sats
         </div>
-        <div class="text-xs">~{totalAmountUSD}USD</div>
+        <div class="text-xs">~{totalAmountUSD} USD</div>
       </TableBodyCell>
     </TableBodyRow>
   </TableBody>

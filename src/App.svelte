@@ -10,61 +10,51 @@
   import OrderDetails from './components/OrderDetails.svelte';
   import PaymentStatus from './components/PaymentStatus.svelte';
 
-  import { fileName } from './stores';
+  import { fileName, receiveAddress } from './stores';
+  import InscribeButton from './components/InscribeButton.svelte';
 
   $: showInscriptionPreview = $fileName !== '';
 </script>
 
 <!-- <DarkMode /> -->
 <div
-  class="p-8 overflow-auto bg-gray-50 dark:bg-gray-900 grid justify-items-center text-center"
+  id="main"
+  class="p-8 overflow-auto bg-gray-50 dark:bg-gray-900 justify-start text-center"
 >
   <Heading />
-  <Card class="flex items-center gap-2">
-    {#if showInscriptionPreview}
-      <!-- {#if true} -->
-      <InscriptionPreview src={$fileName} />
-      {#if true}
-        <FeeTabs />
+  <div class="flex justify-center pt-8">
+    <Card class="items-center gap-2">
+      {#if showInscriptionPreview}
+        <!-- {#if true} -->
+        <InscriptionPreview src={$fileName} />
+        {#if true}
+          <FeeTabs />
+        {/if}
+      {:else}
+        <InputTabs />
       {/if}
-    {:else}
-      <InputTabs />
-    {/if}
 
-    {#if true}
-      <ReceiveAddressInput />
-    {:else}
-      <OrderDetails />
-    {/if}
-    {#if false}
-      <PaymentStatus />
-    {/if}
-  </Card>
+      {#if $fileName !== ''}
+        {#if true}
+          <ReceiveAddressInput />
+          <InscribeButton />
+        {:else}
+          <OrderDetails />
+          <PaymentStatus />
+        {/if}
+      {/if}
+    </Card>
+  </div>
 </div>
 
 <style>
-  div {
+  #main {
     /* /* margin: 10px; */
     position: fixed;
     width: 100%;
     height: 100vh;
     z-index: -1;
-    /* border: 2px solid black; */
-    background: radial-gradient(
-        circle at 22% 11%,
-        rgba(62, 180, 137, 0.45),
-        hsla(0, 0%, 100%, 0) 19%
-      ),
-      radial-gradient(
-        circle at 82% 25%,
-        rgba(33, 150, 243, 0.55),
-        hsla(0, 0%, 100%, 0) 40%
-      ),
-      radial-gradient(
-        circle at 25% 61%,
-        rgba(250, 128, 114, 0.25),
-        hsla(0, 0%, 100%, 0) 50%
-      );
+    background-image: url('/violet-blue-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
   }

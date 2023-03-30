@@ -6,7 +6,10 @@
   import { Photo, PencilSquare, Tag } from 'svelte-heros-v2';
 </script>
 
-<Tabs style="underline">
+<Tabs
+  activeClasses="p-4 text-primary-600 border-b-2 border-primary-600 dark:text-primary-500 dark:border-primary-500"
+  contentClass="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mt-4"
+>
   <TabItem open>
     <div slot="title" class="flex items-center gap-2">
       <Photo variation="solid" />

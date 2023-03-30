@@ -15,7 +15,10 @@
 </script>
 
 <Heading class="text-xl">Inscription Priority</Heading>
-<Tabs style="underline">
+<Tabs
+  activeClasses="p-4 text-primary-600 border-b-2 border-primary-600 dark:text-primary-500 dark:border-primary-500"
+  contentClass="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mt-0 w-90"
+>
   <TabItem on:click={setLow}>
     <div slot="title" class="flex items-center gap-2">
       <Square3Stack3d variation="solid" />
