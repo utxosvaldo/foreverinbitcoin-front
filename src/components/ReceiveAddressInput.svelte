@@ -111,9 +111,8 @@
     </Label>
     <Button
       outline
-      gradient
       color="purple"
-      class="mt-3"
+      class="mt-3 bg-purple-50 hover:bg-purple-50"
       on:click={() => (isReceiveAddressSet = false)}
     >
       <div class="font-thin font-mono text-xs">

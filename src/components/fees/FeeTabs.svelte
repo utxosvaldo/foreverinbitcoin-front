@@ -7,11 +7,23 @@
     ArrowUpOnSquare
   } from 'svelte-heros-v2';
 
-  import { priorityFees, feePriority } from '../../stores';
+  import { priorityFees, feePriority, feeRate } from '../../stores';
 
-  const setLow = () => ($feePriority = 'low');
-  const setMedium = () => ($feePriority = 'medium');
-  const setHigh = () => ($feePriority = 'high');
+  const setLow = () => {
+    $feePriority = 'low';
+    $feeRate = $priorityFees.low.feeRate;
+    console.log('setting ', $feePriority, $feeRate);
+  };
+  const setMedium = () => {
+    $feePriority = 'medium';
+    $feeRate = $priorityFees.medium.feeRate;
+    console.log('setting ', $feePriority, $feeRate);
+  };
+  const setHigh = () => {
+    $feePriority = 'high';
+    $feeRate = $priorityFees.high.feeRate;
+    console.log('setting ', $feePriority, $feeRate);
+  };
 </script>
 
 <Heading class="text-xl">Inscription Priority</Heading>

@@ -10,8 +10,9 @@
   import OrderDetails from './components/OrderDetails.svelte';
   import PaymentStatus from './components/PaymentStatus.svelte';
 
-  import { fileName, receiveAddress } from './stores';
+  import { fileName, orderStatus } from './stores';
   import InscribeButton from './components/InscribeButton.svelte';
+  import BackUpAlert from './components/alerts/BackUpAlert.svelte';
 
   $: showInscriptionPreview = $fileName !== '';
 </script>
@@ -35,11 +36,11 @@
       {/if}
 
       {#if $fileName !== ''}
-        {#if true}
+        {#if $orderStatus < 1}
           <ReceiveAddressInput />
           <InscribeButton />
         {:else}
-          <OrderDetails />
+          <BackUpAlert />
           <PaymentStatus />
         {/if}
       {/if}

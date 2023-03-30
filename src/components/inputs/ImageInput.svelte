@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button, Fileupload, Label } from 'flowbite-svelte';
-  import { fileName, priorityFees } from '../../stores';
+  import { fileName, priorityFees, feeRate, feePriority } from '../../stores';
   import { Convert } from '../../interfaces/uploadImageResponse';
   import { ConvertPF } from '../../interfaces/priorityFees';
 
@@ -40,9 +40,12 @@
     // console.log(await response.json());
 
     const data = ConvertPF.toPriorityFees(await response.text());
-    console.log(data);
+    // console.log(data);
 
     priorityFees.set(data);
+    feePriority.set('high');
+    feeRate.set(data.high.feeRate);
+    // console.log('setting priority fees to', $feePriority, $feeRate);
   }
 </script>
 

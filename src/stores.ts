@@ -1,18 +1,8 @@
 import { writable } from 'svelte/store'
 import type { FeeRateEstimate, PriorityFees } from './interfaces/priorityFees'
-// import { PriorityFees, FeeRateEstimate } from './interfaces/priorityFees'
-// Base vars
+
 export const text = writable<string>("")
-
-// text_preview: str = ""
-// is_invalid_text: bool = False
-
-//     # image
-// is_upload_image_clicked: bool = False
-
 export const fileName = writable<string>("")
-// filename: str = ""
-// is_invalid_file_size: bool = False
 export const receiveAddress = writable<string>("")
 export const focusedAddressInput = writable<boolean>(false)
 // receive_address: str = ""
@@ -20,7 +10,6 @@ export const focusedAddressInput = writable<boolean>(false)
 // is_receive_address_set: bool = False
 // is_invalid_address: bool = False
 
-// priority_fees: dict = PriorityFeeEstimates().dict()
 
 const defaultLowFeeRateEstimate: FeeRateEstimate = {
     feeRate: 3,
@@ -49,7 +38,8 @@ const defaultPriorityFees: PriorityFees = {
 }
 
 export const priorityFees = writable<PriorityFees>(defaultPriorityFees)
-export const feePriority = writable<String>("high")
+export const feePriority = writable<string>("high")
+export const feeRate = writable<number>(1)
 // fee_priority: str = "High"
 
 //     # From confirmation
@@ -57,6 +47,9 @@ export const feePriority = writable<String>("high")
 // order_status: int = 0
 // order_type: str = "image"
 // invoice_id: str = ""
+export const orderId = writable<string>("No order id")
+export const checkoutLink = writable<string>("http://reddit.com")
+export const orderStatus = writable<number>(0)
 // checkout_link: str = ""
 
 //     # Order creation and processing
