@@ -30,6 +30,7 @@
             color="purpleToPink"
             class="mt-2"
             href={$checkoutLink}
+            target="_blank"
           >
             Pay in checkout
           </Button>
@@ -42,7 +43,13 @@
         <Spinner size="12" color="purple" class="text-center mr-3" />
         <div class="w-full grid justify-items-stretch">
           <strong>Payment detected, waiting confirmation...</strong>
-          <Button gradient color="purpleToPink" class="mt-2" href={receiptLink}>
+          <Button
+            gradient
+            color="purpleToPink"
+            class="mt-2"
+            href={receiptLink}
+            target="_blank"
+          >
             See your receipts
           </Button>
         </div>
@@ -55,7 +62,14 @@
         <CheckCircle size="50" class="text-purple-700 mr-3" />
         <div class="w-full grid justify-items-stretch">
           <strong>Payment confirmed.</strong>
-          <Button outline color="purple" class="mt-2" href={receiptLink}>
+          <Button
+            outline
+            color="purple"
+            class="mt-2"
+            href={receiptLink}
+            target="_blank"
+            }
+          >
             See your receipt
           </Button>
         </div>
@@ -79,7 +93,13 @@
         <CheckCircle size="50" class="text-purple-700 mr-3" />
         <div class="w-full grid justify-items-stretch">
           <strong>Inscription sent to your receive address.</strong>
-          <Button outline color="purple" class="mt-2" href={sendTxLink}>
+          <Button
+            outline
+            color="purple"
+            class="mt-2"
+            href={sendTxLink}
+            target="_blank"
+          >
             See sent transaction
           </Button>
         </div>

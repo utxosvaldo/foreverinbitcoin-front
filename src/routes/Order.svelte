@@ -30,7 +30,7 @@
   export let params = {};
 
   async function fetchOrder() {
-    const response = await fetch(`http://localhost/orders/${params.orderId}`);
+    const response = await fetch(`/orders/${params.orderId}`);
     // data = await response.json();
     const data = ConvertOrder.toOrder(await response.text());
     console.log('data', data);
@@ -47,10 +47,6 @@
     inscriptionId.set(data.inscriptionId);
     inscriptionSentTx.set(data.inscriptionSentTx);
     checkoutLink.set(data.checkoutLink);
-
-    // checkoutLink.set(data.checkoutLink);
-    // orderStatus.set(data.status);
-    // orderId.set(data.orderId);
   }
 
   onMount(fetchOrder);
@@ -64,7 +60,7 @@
   <Heading />
   <div class="flex justify-center pt-8">
     <Card class="items-center gap-2">
-      <InscriptionPreview src={$fileName} canCancel={false} />
+      <InscriptionPreview src={$fileName} />
       <FeeTabConfirmed />
       <BackUpAlert />
       <PaymentStatus />

@@ -9,7 +9,6 @@
     orderStatus,
     orderId
   } from '../stores';
-  import { ConvertOC } from '../interfaces/orderConfirmation';
   import { ConvertOrder } from '../interfaces/order';
 
   $: disableButton = $fileName == '' || $receiveAddress == '';
@@ -26,7 +25,7 @@
 
     console.log(requestData);
     // TODO get url from env var
-    const response = await fetch('http://localhost/orders', {
+    const response = await fetch('/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData)

@@ -11,7 +11,7 @@
     formData.append('file', file);
 
     // TODO get url from env var
-    const response = await fetch('http://localhost/upload', {
+    const response = await fetch('/upload', {
       method: 'POST',
       body: formData
     });
@@ -32,7 +32,7 @@
 
     console.log(requestData);
     // TODO get url from env var
-    const response = await fetch('http://localhost/estimatefees', {
+    const response = await fetch('/estimatefees', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData)
