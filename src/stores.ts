@@ -62,13 +62,9 @@ export const orderStatus = writable<number>(0)
 // order_loading: bool = True
 
 //     # Inscription
-// inscription: str = ""
-// inscription_sent_tx: str = ""
+export const inscriptionId = writable<string>("")
+export const inscriptionSentTx = writable<string>("")
 
-//     # Show
-// address_done_button: bool = False
-
-// host: str = os.getenv("HOST", "http://localhost")
 
 
 

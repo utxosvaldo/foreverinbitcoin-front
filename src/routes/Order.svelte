@@ -18,17 +18,18 @@
     networkFee,
     serviceFee,
     totalAmount,
-    feePriority
+    feePriority,
+    orderStatus,
+    inscriptionId,
+    inscriptionSentTx,
+    checkoutLink
   } from '../stores';
   import { onMount } from 'svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
 
   export let params = {};
 
-  // async function getOrder() {
-  //   // let data;
   async function fetchOrder() {
-    console.log('Inside fetch data!!!!!!');
     const response = await fetch(`http://localhost/orders/${params.orderId}`);
     // data = await response.json();
     const data = ConvertOrder.toOrder(await response.text());
@@ -37,17 +38,20 @@
     fileName.set(data.filename);
     receiveAddress.set(data.receiveAddress);
     orderId.set(data.orderId);
+    orderStatus.set(data.status);
     feeRate.set(data.feeRate);
     networkFee.set(data.networkFee);
     serviceFee.set(data.serviceFee);
     totalAmount.set(data.totalAmount);
     feePriority.set(data.feePriority);
+    inscriptionId.set(data.inscriptionId);
+    inscriptionSentTx.set(data.inscriptionSentTx);
+    checkoutLink.set(data.checkoutLink);
 
     // checkoutLink.set(data.checkoutLink);
     // orderStatus.set(data.status);
     // orderId.set(data.orderId);
   }
-  // }
 
   onMount(fetchOrder);
 </script>
