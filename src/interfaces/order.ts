@@ -19,6 +19,8 @@ export interface Order {
     networkFee: number;
     serviceFee: number;
     totalAmount: number;
+    inscriptionId: string;
+    inscriptionSentTx: string;
 }
 
 // Converts JSON strings to/from your types
@@ -198,5 +200,7 @@ const typeMap: any = {
         { json: "networkFee", js: "networkFee", typ: 0 },
         { json: "serviceFee", js: "serviceFee", typ: 0 },
         { json: "totalAmount", js: "totalAmount", typ: 0 },
+        { json: "inscriptionId", js: "inscriptionId", typ: "" },
+        { json: "inscriptionSentTx", js: "inscriptionSentTx", typ: "" },
     ], false),
 };
