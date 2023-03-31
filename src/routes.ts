@@ -1,14 +1,16 @@
-import Home from "./components/Heading.svelte";
-import Article from "./components/Article.svelte";
-import About from "./components/samples/About.svelte";
-import NotFound from "./components/NotFound.svelte";
+import Home from "./routes/Home.svelte";
+import Order from "./routes/Order.svelte";
+// import Order from "./components/Article.svelte";
+// import About from "./components/samples/About.svelte";
+// import NotFound from "./components/NotFound.svelte";
 
 export const routes = {
   // Exact path
   "/": Home,
-  "/about": About,
-  // Exact path + parameter
-  "/article/:title": Article,
-  // Wildcard
-  "*": NotFound
+  "/orders/:orderId": Order,
+  // "/about": About,
+  // // Exact path + parameter
+  // "/article/:title": Article,
+  // // Wildcard
+  // "*": NotFound
 };

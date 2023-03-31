@@ -40,6 +40,10 @@ const defaultPriorityFees: PriorityFees = {
 export const priorityFees = writable<PriorityFees>(defaultPriorityFees)
 export const feePriority = writable<string>("high")
 export const feeRate = writable<number>(1)
+
+export const networkFee = writable<number>(1234)
+export const serviceFee = writable<number>(567)
+export const totalAmount = writable<number>(890)
 // fee_priority: str = "High"
 
 //     # From confirmation

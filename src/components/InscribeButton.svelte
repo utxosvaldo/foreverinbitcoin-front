@@ -10,6 +10,7 @@
     orderId
   } from '../stores';
   import { ConvertOC } from '../interfaces/orderConfirmation';
+  import { ConvertOrder } from '../interfaces/order';
 
   $: disableButton = $fileName == '' || $receiveAddress == '';
 
@@ -32,7 +33,7 @@
     });
     // console.log(await response.json());
 
-    const data = ConvertOC.toOrderConfirmation(await response.text());
+    const data = ConvertOrder.toOrder(await response.text());
     console.log(data);
 
     checkoutLink.set(data.checkoutLink);

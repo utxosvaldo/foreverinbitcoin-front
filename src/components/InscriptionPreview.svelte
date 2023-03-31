@@ -5,6 +5,7 @@
   import { fileName, priorityFees, feePriority } from '../stores';
 
   export let src: string;
+  export let canCancel: boolean = true;
 
   const cancelPreview = () => {
     $fileName = '';
@@ -16,6 +17,8 @@
 
 <img {src} class="rounded drop-shadow-lg" alt="Not found" />
 
-<Button outline size="xs" color="purple" class="mb-5" on:click={cancelPreview}
-  >Cancel</Button
->
+{#if canCancel}
+  <Button outline size="xs" color="purple" class="mb-5" on:click={cancelPreview}
+    >Cancel</Button
+  >
+{/if}
