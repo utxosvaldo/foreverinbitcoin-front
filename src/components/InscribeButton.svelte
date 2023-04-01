@@ -49,15 +49,16 @@
   }
 </script>
 
-<div class="mb-6">
+<div class="mb-6 flex w-4/5">
   {#if disableButton}
-    <Button gradient color="purpleToPink" class="mt-2" disabled>Inscribe</Button
+    <Button gradient color="purpleToPink" class="w-full" disabled
+      >Inscribe</Button
     >
   {:else}
     <Button
       gradient
       color="purpleToPink"
-      class="mt-2"
+      class="w-full"
       size="xl"
       on:click={createOrder}>Inscribe</Button
     >

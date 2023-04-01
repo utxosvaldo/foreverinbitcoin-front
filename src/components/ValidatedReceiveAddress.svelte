@@ -1,7 +1,7 @@
 <script>
   import { P } from 'flowbite-svelte';
   import { receiveAddress, orderStatus } from '../stores';
-  import { PencilSquare } from 'svelte-heros-v2';
+  import { CheckCircle } from 'svelte-heros-v2';
 
   $: receiveAddressFirst = $receiveAddress.slice(0, $receiveAddress.length / 2);
   $: receiveAddressSecond = $receiveAddress.slice($receiveAddress.length / 2);
@@ -18,7 +18,7 @@
   >
     Receive address
     {#if $orderStatus < 1}
-      <PencilSquare class="pl-1" />
+      <CheckCircle size="30" variation="outline" class="pl-1" />
     {/if}
   </P>
   <!-- <div class="  text-xs"> -->

@@ -12,9 +12,7 @@
   };
 </script>
 
-{#if $orderStatus == 8}
-  <Badge border color="purple">Order complete</Badge>
-{:else}
+{#if $orderStatus != 8}
   <Heading class="text-lg mb-1">Inscription Preview</Heading>
 {/if}
 <div class="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mb-4  w-full">
@@ -25,6 +23,7 @@
   </div>
 
   {#if $orderStatus == 8}
+    <Badge border color="purple" class="mt-2">Order complete</Badge>
     <Button
       gradient
       color="purpleToPink"
