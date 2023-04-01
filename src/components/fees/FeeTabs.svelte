@@ -39,11 +39,7 @@
     </div>
 
     <!-- <div class="flex"> -->
-    <FeeTab
-      feeRateEstimate={$priorityFees.low}
-      timeEstimate={'~ 1 hour'}
-      rateUSD={$priorityFees.rateUSD}
-    />
+    <FeeTab feeRateEstimate={$priorityFees.low} timeEstimate={'~ 1 hour'} />
     <!-- </div> -->
   </TabItem>
   <TabItem on:click={setMedium}>
@@ -51,21 +47,13 @@
       <Square2Stack variation="solid" />
       Medium
     </div>
-    <FeeTab
-      feeRateEstimate={$priorityFees.medium}
-      timeEstimate={'~ 30 min'}
-      rateUSD={$priorityFees.rateUSD}
-    />
+    <FeeTab feeRateEstimate={$priorityFees.medium} timeEstimate={'~ 30 min'} />
   </TabItem>
   <TabItem open on:click={setHigh}>
     <div slot="title" class="flex items-center gap-2">
       <ArrowUpOnSquare variation="solid" />
       High
     </div>
-    <FeeTab
-      feeRateEstimate={$priorityFees.high}
-      timeEstimate={'~ 10 min'}
-      rateUSD={$priorityFees.rateUSD}
-    />
+    <FeeTab feeRateEstimate={$priorityFees.high} timeEstimate={'~ 10 min'} />
   </TabItem>
 </Tabs>
