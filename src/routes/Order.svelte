@@ -47,8 +47,6 @@
     inscriptionId.set(data.inscriptionId);
     inscriptionSentTx.set(data.inscriptionSentTx);
     checkoutLink.set(data.checkoutLink);
-    console.log('finished loading vars');
-    console.log('filename', $fileName);
   }
 
   onMount(fetchOrder);

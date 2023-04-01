@@ -32,7 +32,7 @@
   }
 </script>
 
-<Heading class="text-xl">Inscription Priority</Heading>
+<!-- <Heading class="text-xl">Inscription Priority</Heading> -->
 
 <Tabs
   activeClasses="p-4 text-primary-600 border-b-2 border-primary-600 dark:text-primary-500 dark:border-primary-500"
