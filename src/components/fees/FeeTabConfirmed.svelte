@@ -8,14 +8,12 @@
   } from 'svelte-heros-v2';
 
   import {
-    priorityFees,
     feePriority,
     feeRate,
     networkFee,
     serviceFee,
     totalAmount
   } from '../../stores';
-  import type { FeeRateEstimate } from '../../interfaces/priorityFees';
 
   $: feeRateEstimate = {
     feeRate: $feeRate,

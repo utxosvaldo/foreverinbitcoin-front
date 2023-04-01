@@ -47,6 +47,8 @@
     inscriptionId.set(data.inscriptionId);
     inscriptionSentTx.set(data.inscriptionSentTx);
     checkoutLink.set(data.checkoutLink);
+    console.log('finished loading vars');
+    console.log('filename', $fileName);
   }
 
   onMount(fetchOrder);
@@ -60,7 +62,7 @@
   <Heading />
   <div class="flex justify-center pt-8">
     <Card class="items-center gap-2">
-      <InscriptionPreview src={$fileName} />
+      <InscriptionPreview />
       <FeeTabConfirmed />
       <BackUpAlert />
       <PaymentStatus />

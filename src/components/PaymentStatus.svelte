@@ -68,7 +68,6 @@
             class="mt-2"
             href={receiptLink}
             target="_blank"
-            }
           >
             See your receipt
           </Button>

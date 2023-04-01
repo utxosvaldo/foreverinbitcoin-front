@@ -2,16 +2,7 @@
   import { Badge, Button } from 'flowbite-svelte';
   import { Heading } from 'flowbite-svelte';
 
-  import {
-    fileName,
-    priorityFees,
-    feePriority,
-    orderStatus,
-    inscriptionId
-  } from '../stores';
-
-  export let src: string;
-  // export let canCancel: boolean = true;
+  import { fileName, orderStatus, inscriptionId } from '../stores';
 
   $: inscriptionLink = `https://ordinals.com/inscription/${$inscriptionId}`;
 
@@ -27,14 +18,15 @@
   <Heading class="text-lg mb-2">Inscription Preview</Heading>
 {/if}
 
-<img {src} class="rounded drop-shadow-lg mb-3" alt="Not found" />
+<img src={$fileName} class="rounded drop-shadow-lg mb-3" alt="Not found" />
 
 {#if $orderStatus == 8}
   <Button
     gradient
     color="purpleToPink"
     class="mt-2 mb-3 w-2/3"
-    href={inscriptionLink}>See your inscription</Button
+    href={inscriptionLink}
+    target="_blank">See your inscription</Button
   >
 {/if}
 

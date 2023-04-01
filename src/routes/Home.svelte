@@ -26,7 +26,7 @@
     <Card class="items-center gap-2">
       {#if showInscriptionPreview}
         <!-- {#if true} -->
-        <InscriptionPreview src={$fileName} />
+        <InscriptionPreview />
         {#if true}
           <FeeTabs />
         {/if}
