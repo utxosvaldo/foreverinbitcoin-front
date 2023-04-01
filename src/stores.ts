@@ -39,7 +39,7 @@ const defaultPriorityFees: PriorityFees = {
 
 export const priorityFees = writable<PriorityFees>(defaultPriorityFees)
 export const feePriority = writable<string>("high")
-export const feeRate = writable<number>(1)
+export const feeRate = writable<number>(0)
 
 export const networkFee = writable<number>(1234)
 export const serviceFee = writable<number>(567)
@@ -54,6 +54,7 @@ export const totalAmount = writable<number>(890)
 export const orderId = writable<string>("")
 export const checkoutLink = writable<string>("http://reddit.com")
 export const orderStatus = writable<number>(0)
+export const rateUSD = writable<number>(0)
 // checkout_link: str = ""
 
 //     # Order creation and processing

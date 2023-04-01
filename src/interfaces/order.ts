@@ -21,6 +21,7 @@ export interface Order {
     totalAmount: number;
     inscriptionId: string;
     inscriptionSentTx: string;
+    rateUSD: number;
 }
 
 // Converts JSON strings to/from your types
@@ -202,5 +203,6 @@ const typeMap: any = {
         { json: "totalAmount", js: "totalAmount", typ: 0 },
         { json: "inscriptionId", js: "inscriptionId", typ: "" },
         { json: "inscriptionSentTx", js: "inscriptionSentTx", typ: "" },
+        { json: "rateUSD", js: "rateUSD", typ: 0 },
     ], false),
 };

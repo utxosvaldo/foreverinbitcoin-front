@@ -10,7 +10,8 @@
     orderId,
     networkFee,
     serviceFee,
-    totalAmount
+    totalAmount,
+    rateUSD
   } from '../stores';
   import { ConvertOrder } from '../interfaces/order';
 

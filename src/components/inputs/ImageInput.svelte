@@ -1,28 +1,16 @@
 <script lang="ts">
   import { Button, Fileupload, Label } from 'flowbite-svelte';
-  import { fileName, priorityFees, feeRate, feePriority } from '../../stores';
-  import { Convert } from '../../interfaces/uploadImageResponse';
+  import {
+    fileName,
+    priorityFees,
+    feeRate,
+    feePriority,
+    rateUSD
+  } from '../../stores';
   import { ConvertPF } from '../../interfaces/priorityFees';
+  import Filepond from '../Filepond.svelte';
 
-  async function uploadFile() {
-    const fileInput = document.getElementById('larg_size');
-    const file = fileInput.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-
-    // TODO get url from env var
-    const response = await fetch('/upload', {
-      method: 'POST',
-      body: formData
-    });
-
-    const data = Convert.toUploadImageResponse(await response.text());
-    // console.log(data);
-
-    fileName.set(data.fileName);
-
-    await estimateFees();
-  }
+  $: disabled = $fileName == '';
 
   async function estimateFees() {
     const requestData = {
@@ -45,18 +33,17 @@
     priorityFees.set(data);
     feePriority.set('high');
     feeRate.set(data.high.feeRate);
+    rateUSD.set(data.rateUSD);
     // console.log('setting priority fees to', $feePriority, $feeRate);
   }
 </script>
 
-<div class="grid justify-items-center">
-  <Label class="mb-2 py-2" for="larg_size">Upload your image file</Label>
-  <Fileupload id="larg_size" size="lg" />
-  <Button
-    outline
-    gradient
-    color="purpleToPink"
-    class="mt-2"
-    on:click={uploadFile}>Preview Inscription</Button
-  >
-</div>
+<Filepond />
+
+<Button
+  gradient
+  color="purpleToPink"
+  class="mt-2"
+  {disabled}
+  on:click={estimateFees}>Preview Inscription</Button
+>

@@ -14,18 +14,18 @@
     ArrowUpOnSquare
   } from 'svelte-heros-v2';
   import type { FeeRateEstimate } from '../../interfaces/priorityFees';
-  import { feePriority } from '../../stores';
+  import { feePriority, rateUSD } from '../../stores';
 
   export let feeRateEstimate: FeeRateEstimate;
   export let timeEstimate: string;
-  export let rateUSD: number;
+  // export let rateUSD: number;
 
   $: networkFeeUSD =
-    Math.round((feeRateEstimate.networkFee * rateUSD) / 1e6) / 100;
+    Math.round((feeRateEstimate.networkFee * $rateUSD) / 1e6) / 100;
   $: serviceFeeUSD =
-    Math.round((feeRateEstimate.serviceFee * rateUSD) / 1e6) / 100;
+    Math.round((feeRateEstimate.serviceFee * $rateUSD) / 1e6) / 100;
   $: totalAmountUSD =
-    Math.round((feeRateEstimate.totalAmount * rateUSD) / 1e6) / 100;
+    Math.round((feeRateEstimate.totalAmount * $rateUSD) / 1e6) / 100;
 </script>
 
 <div class="flex justify-center p-1">
@@ -55,7 +55,7 @@
         <div>
           {feeRateEstimate.networkFee.toLocaleString('en-US')} sats
         </div>
-        <div class="pl-1 font-light">~ {networkFeeUSD} USD</div>
+        <div class="pl-1 font-light">~ {networkFeeUSD.toFixed(2)} USD</div>
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>

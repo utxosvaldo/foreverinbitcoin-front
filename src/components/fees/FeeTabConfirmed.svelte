@@ -24,7 +24,7 @@
 
   let timeEstimate: string = 'yeyeyeye';
   if ($feePriority == 'high') {
-    timeEstimate = 'Next block (10 min)';
+    timeEstimate = '~ 10 min';
   } else if ($feePriority == 'medium') {
     timeEstimate = '~ 30 min)';
   } else if ($feePriority == 'low') {
