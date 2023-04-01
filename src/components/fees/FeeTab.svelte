@@ -1,13 +1,20 @@
 <script lang="ts">
   import {
     Badge,
+    Span,
     Table,
     TableBody,
     TableBodyCell,
     TableBodyRow
   } from 'flowbite-svelte';
-  import { Clock } from 'svelte-heros-v2';
+  import {
+    Clock,
+    Square2Stack,
+    Square3Stack3d,
+    ArrowUpOnSquare
+  } from 'svelte-heros-v2';
   import type { FeeRateEstimate } from '../../interfaces/priorityFees';
+  import { feePriority } from '../../stores';
 
   export let feeRateEstimate: FeeRateEstimate;
   export let timeEstimate: string;
@@ -21,67 +28,57 @@
     Math.round((feeRateEstimate.totalAmount * rateUSD) / 1e6) / 100;
 </script>
 
-<Table hoverable>
+<div class="flex justify-center p-1">
+  <div class="pr-1">
+    <Badge border color="purple"
+      ><Clock size="20" class="pr-1" />{timeEstimate}</Badge
+    >
+  </div>
+  <div class="pl-1">
+    <Badge border color="purple">
+      {#if $feePriority == 'low'}
+        <Square3Stack3d size="20" class="pr-1" />
+      {:else if $feePriority == 'medium'}
+        <Square2Stack size="20" class="pr-1" />
+      {:else if $feePriority == 'high'}
+        <ArrowUpOnSquare size="20" class="pr-1" />
+      {/if}
+      {feeRateEstimate.feeRate} sats/vB</Badge
+    >
+  </div>
+</div>
+<Table shadow>
   <TableBody>
     <TableBodyRow>
-      <TableBodyCell><span class="font-extrabold">Time:</span></TableBodyCell>
-      <TableBodyCell class="text-end">{timeEstimate}</TableBodyCell>
-    </TableBodyRow>
-    <TableBodyRow>
-      <TableBodyCell
-        ><span class="font-extrabold">Fee rate:</span></TableBodyCell
-      >
-      <TableBodyCell class="text-end"
-        >{feeRateEstimate.feeRate} sats/vB</TableBodyCell
-      >
-    </TableBodyRow>
-    <TableBodyRow>
-      <TableBodyCell
-        ><span class="font-extrabold">Network fee:</span></TableBodyCell
-      >
-      <TableBodyCell class="text-end">
-        <div class="text-lg">
+      <TableBodyCell>Network fee</TableBodyCell>
+      <TableBodyCell class="flex whitespace-nowrap">
+        <div>
           {feeRateEstimate.networkFee.toLocaleString('en-US')} sats
         </div>
-        <div class="text-xs">~{networkFeeUSD} USD</div>
+        <div class="pl-1 font-light">~ {networkFeeUSD} USD</div>
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
-      <TableBodyCell
-        ><span class="font-extrabold">Service fee:</span></TableBodyCell
-      >
-      <TableBodyCell class="text-end">
-        <div class="text-lg">
+      <TableBodyCell>Service fee</TableBodyCell>
+      <TableBodyCell class="flex whitespace-nowrap">
+        <div>
           {feeRateEstimate.serviceFee.toLocaleString('en-US')} sats
         </div>
-        <div class="text-xs">~{serviceFeeUSD} USD</div>
-      </TableBodyCell>
-    </TableBodyRow>
-    <TableBodyRow>
-      <TableBodyCell
-        ><span class="text-3xl font-black">Total:</span></TableBodyCell
-      >
-      <TableBodyCell class="text-3xl text-end">
-        <div class="text-xl font-extrabold">
-          {feeRateEstimate.totalAmount.toLocaleString('en-US')} sats
+        <div class="pl-1 font-light">
+          ~ {serviceFeeUSD.toFixed(2)} USD
         </div>
-        <div class="text-xs">~{totalAmountUSD} USD</div>
       </TableBodyCell>
     </TableBodyRow>
   </TableBody>
+  <tfoot>
+    <tr class="font-semibold text-gray-900 dark:text-white">
+      <th scope="row" class="py-3 px-6 text-base">Total</th>
+      <td class="py-3 px-6 flex whitespace-nowrap">
+        <div>
+          {feeRateEstimate.totalAmount.toLocaleString('en-US')} sats
+        </div>
+        <div class="pl-1 font-light">~ {totalAmountUSD.toFixed(2)} USD</div>
+      </td>
+    </tr>
+  </tfoot>
 </Table>
-
-<!-- <Card class="w-full">
-  <div class="flex justify-between w-full">
-    <span class="font-bold">Time:</span><span>Next Block (10min)</span>
-  </div>
-  <div class="flex justify-between w-full">
-    <span class="font-bold">Fee rate:</span><span>2 sats/vB</span>
-  </div>
-  <div class="flex justify-between w-full">
-    <span class="font-bold">Network Fee:</span><span>45,000 sats</span>
-  </div>
-  <div class="flex justify-between w-full">
-    <span class="font-bold">Service Fee:</span><span>25,000 sats</span>
-  </div>
-</Card> -->

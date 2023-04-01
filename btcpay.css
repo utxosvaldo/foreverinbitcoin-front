@@ -1,0 +1,25 @@
+body {
+    background-image: url('/Storage/2e32cb95-ca6c-41b0-a93f-6aeeb2bf110f');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* 
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+h1 {
+  font-size: 100px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #ec4899, #a855f7);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.store-logo {
+    border-radius: 0;
+}

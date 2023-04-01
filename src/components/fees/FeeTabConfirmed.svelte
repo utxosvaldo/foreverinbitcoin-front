@@ -39,7 +39,7 @@
   contentClass="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mt-0 w-90"
 >
   <TabItem open>
-    <div slot="title" class="flex items-center gap-2">
+    <div slot="title" class="flex items-center gap-2 capitalize">
       {#if $feePriority == 'high'}
         <ArrowUpOnSquare variation="solid" />
       {:else if $feePriority == 'medium'}
@@ -47,7 +47,7 @@
       {:else if $feePriority == 'low'}
         <Square3Stack3d variation="solid" />
       {/if}
-      {$feePriority.toUpperCase()} inscription priority
+      {$feePriority} inscription priority
     </div>
     <FeeTab {feeRateEstimate} {timeEstimate} rateUSD={0} />
   </TabItem>

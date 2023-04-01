@@ -41,7 +41,7 @@
     <!-- <div class="flex"> -->
     <FeeTab
       feeRateEstimate={$priorityFees.low}
-      timeEstimate={'~1 hour'}
+      timeEstimate={'~ 1 hour'}
       rateUSD={$priorityFees.rateUSD}
     />
     <!-- </div> -->
@@ -53,7 +53,7 @@
     </div>
     <FeeTab
       feeRateEstimate={$priorityFees.medium}
-      timeEstimate={'~30 min'}
+      timeEstimate={'~ 30 min'}
       rateUSD={$priorityFees.rateUSD}
     />
   </TabItem>
@@ -64,7 +64,7 @@
     </div>
     <FeeTab
       feeRateEstimate={$priorityFees.high}
-      timeEstimate={'Next Block (10 min)'}
+      timeEstimate={'~ 10 min'}
       rateUSD={$priorityFees.rateUSD}
     />
   </TabItem>

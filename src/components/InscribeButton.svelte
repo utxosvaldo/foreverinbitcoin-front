@@ -7,7 +7,10 @@
     feePriority,
     feeRate,
     orderStatus,
-    orderId
+    orderId,
+    networkFee,
+    serviceFee,
+    totalAmount
   } from '../stores';
   import { ConvertOrder } from '../interfaces/order';
 
@@ -38,6 +41,10 @@
     checkoutLink.set(data.checkoutLink);
     orderStatus.set(data.status);
     orderId.set(data.orderId);
+    networkFee.set(data.networkFee);
+    serviceFee.set(data.serviceFee);
+    totalAmount.set(data.totalAmount);
+    fileName.set(data.filename);
   }
 </script>
 

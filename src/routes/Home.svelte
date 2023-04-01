@@ -9,9 +9,10 @@
   import ReceiveAddressInput from '../components/ReceiveAddressInput.svelte';
   import PaymentStatus from '../components/PaymentStatus.svelte';
 
-  import { fileName, orderStatus } from '../stores';
+  import { fileName, orderStatus, orderId } from '../stores';
   import InscribeButton from '../components/InscribeButton.svelte';
   import BackUpAlert from '../components/alerts/BackUpAlert.svelte';
+  import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
 
   $: showInscriptionPreview = $fileName !== '';
 </script>
@@ -25,9 +26,10 @@
   <div class="flex justify-center pt-8">
     <Card class="items-center gap-2">
       {#if showInscriptionPreview}
-        <!-- {#if true} -->
         <InscriptionPreview />
-        {#if true}
+        {#if $orderId}
+          <FeeTabConfirmed />
+        {:else}
           <FeeTabs />
         {/if}
       {:else}
