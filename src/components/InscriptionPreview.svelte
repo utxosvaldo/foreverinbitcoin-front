@@ -18,7 +18,11 @@
   <Heading class="text-lg mb-1">Inscription Preview</Heading>
 {/if}
 <div class="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mb-4  w-full">
-  <img src={$fileName} class="rounded drop-shadow-lg mb-3" alt="Not found" />
+  <div class="flex justify-center mb-3 ">
+    <div class="fancy-border">
+      <img src={$fileName} class="rounded drop-shadow-xl" alt="Not found" />
+    </div>
+  </div>
 
   {#if $orderStatus == 8}
     <Button
@@ -36,3 +40,31 @@
     >
   {/if}
 </div>
+
+<style>
+  .fancy-border {
+    position: relative;
+    width: fit-content;
+    border-radius: 1rem;
+  }
+
+  .fancy-border img,
+  .fancy-border::after {
+    border-radius: inherit;
+  }
+
+  .fancy-border img {
+    display: block;
+  }
+
+  .fancy-border::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+  }
+</style>
