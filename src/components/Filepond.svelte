@@ -49,7 +49,7 @@
     bind:this={pond}
     {name}
     server="/upload"
-    allowMultiple={true}
+    allowMultiple={false}
     oninit={handleInit}
     onaddfile={handleAddFile}
     onprocessfile={handleProcessFile}
