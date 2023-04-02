@@ -12,6 +12,10 @@
 
   $: inscriptionLink = `https://ordinals.com/inscription/${$inscriptionId}`;
 
+  $: previewFileName = $fileName
+    .replace('.txt', '.html')
+    .replace('.json', '.html');
+
   const cancelPreview = () => {
     $fileName = '';
     $feeRate = 0;
@@ -27,12 +31,16 @@
       <div class="fancy-border">
         <img
           src={`/content/${$fileName}`}
-          class="rounded drop-shadow-xl"
+          class="drop-shadow-xl"
           alt="Not found"
         />
       </div>
     {:else}
-      <iframe src={`/preview/${$fileName}`} title="Text inscription preview" />
+      <iframe
+        src={`/preview/${previewFileName}`}
+        title="Text inscription preview"
+        class="w-full aspect-square drop-shado-xl fancy-border"
+      />
     {/if}
   </div>
 

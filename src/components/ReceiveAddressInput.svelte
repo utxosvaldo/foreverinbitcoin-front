@@ -11,7 +11,7 @@
   } from 'flowbite-svelte';
   import { bech32, bech32m } from 'bech32';
   import { ArrowLeftOnRectangle, Check } from 'svelte-heros-v2';
-  import { receiveAddress, fileName } from '../stores';
+  import { receiveAddress, receiveAddressType } from '../stores';
   import FocusedAddressInput from './FocusedAddressInput.svelte';
   import ValidatedReceiveAddress from './ValidatedReceiveAddress.svelte';
 
@@ -33,6 +33,7 @@
       bech32.decode(inputAddress);
       console.log('Your segwit address is valid');
       $receiveAddress = inputAddress;
+      $receiveAddressType = 'segwit';
       showInvalidAddressAlert = false;
       isReceiveAddressSet = true;
     } catch (error) {
@@ -40,6 +41,7 @@
         bech32m.decode(inputAddress);
         console.log('Your taproot address is valid');
         $receiveAddress = inputAddress;
+        $receiveAddressType = 'taproot';
         showInvalidAddressAlert = false;
         isReceiveAddressSet = true;
       } catch (error) {

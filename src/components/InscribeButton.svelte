@@ -11,7 +11,9 @@
     networkFee,
     serviceFee,
     totalAmount,
-    rateUSD
+    rateUSD,
+    orderType,
+    receiveAddressType
   } from '../stores';
   import { ConvertOrder } from '../interfaces/order';
 
@@ -20,9 +22,9 @@
   async function createOrder() {
     const requestData = {
       filename: $fileName,
-      orderType: 'image',
+      orderType: $orderType,
       receiveAddress: $receiveAddress,
-      receiveAddressType: 'segwit',
+      receiveAddressType: $receiveAddressType,
       feeRate: $feeRate,
       feePriority: $feePriority
     };

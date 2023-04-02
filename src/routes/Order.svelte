@@ -23,7 +23,8 @@
     inscriptionId,
     inscriptionSentTx,
     checkoutLink,
-    rateUSD
+    rateUSD,
+    orderType
   } from '../stores';
   import { onMount } from 'svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
@@ -39,6 +40,7 @@
     fileName.set(data.filename);
     receiveAddress.set(data.receiveAddress);
     orderId.set(data.orderId);
+    orderType.set(data.orderType);
     orderStatus.set(data.status);
     feeRate.set(data.feeRate);
     networkFee.set(data.networkFee);

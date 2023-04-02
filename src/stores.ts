@@ -3,7 +3,9 @@ import type { FeeRateEstimate, PriorityFees } from './interfaces/priorityFees'
 
 export const text = writable<string>("")
 export const fileName = writable<string>("")
+export const previewFileName = writable<string>("")
 export const receiveAddress = writable<string>("")
+export const receiveAddressType = writable<string>("")
 export const focusedAddressInput = writable<boolean>(false)
 // receive_address: str = ""
 // receive_address_type: str = ""
