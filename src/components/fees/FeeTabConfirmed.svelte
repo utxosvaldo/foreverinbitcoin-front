@@ -49,6 +49,6 @@
       {/if}
       {$feePriority} inscription priority
     </div>
-    <FeeTab {feeRateEstimate} {timeEstimate} rateUSD={0} />
+    <FeeTab {feeRateEstimate} {timeEstimate} />
   </TabItem>
 </Tabs>
