@@ -40,10 +40,10 @@
 
 <Filepond />
 
-<Button
+<!-- <Button
   gradient
   color="purpleToPink"
   class="mt-2"
   {disabled}
   on:click={estimateFees}>Preview Inscription</Button
->
+> -->

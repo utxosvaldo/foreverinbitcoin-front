@@ -2,7 +2,13 @@
   import { Badge, Button } from 'flowbite-svelte';
   import { Heading } from 'flowbite-svelte';
 
-  import { fileName, orderStatus, inscriptionId, feeRate } from '../stores';
+  import {
+    fileName,
+    orderStatus,
+    inscriptionId,
+    feeRate,
+    orderType
+  } from '../stores';
 
   $: inscriptionLink = `https://ordinals.com/inscription/${$inscriptionId}`;
 
@@ -17,9 +23,17 @@
 {/if}
 <div class="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mb-4  w-full">
   <div class="flex justify-center mb-3 ">
-    <div class="fancy-border">
-      <img src={$fileName} class="rounded drop-shadow-xl" alt="Not found" />
-    </div>
+    {#if $orderType == 'image'}
+      <div class="fancy-border">
+        <img
+          src={`/content/${$fileName}`}
+          class="rounded drop-shadow-xl"
+          alt="Not found"
+        />
+      </div>
+    {:else}
+      <iframe src={`/preview/${$fileName}`} title="Text inscription preview" />
+    {/if}
   </div>
 
   {#if $orderStatus == 8}

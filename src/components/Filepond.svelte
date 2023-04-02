@@ -6,8 +6,14 @@
   // `npm i filepond-plugin-image-preview filepond-plugin-image-exif-orientation --save`
   import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
   import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-  import { Convert } from '../interfaces/uploadImageResponse';
-  import { fileName } from '../stores';
+  import {
+    feePriority,
+    feeRate,
+    fileName,
+    priorityFees,
+    rateUSD
+  } from '../stores';
+  import { ConvertPF } from '../interfaces/priorityFees';
 
   // Register the plugins
   registerPlugin(
@@ -30,17 +36,38 @@
 
   async function handleAddFile(err, fileItem) {
     console.log('fileItem when added', fileItem.filename);
-
-    // fileName.set(data.fileName);
-
-    // await estimateFees();
   }
 
-  function handleProcessFile(err, fileItem) {
+  async function handleProcessFile(err, fileItem) {
     console.log('Handling process file: ', fileItem.filename);
     console.log('Server id: ', fileItem.serverId);
 
     fileName.set(fileItem.serverId);
+
+    await estimateFees();
+  }
+
+  async function estimateFees() {
+    const requestData = {
+      filename: $fileName
+    };
+
+    console.log(requestData);
+    const response = await fetch('/estimatefees', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestData)
+    });
+    // console.log(await response.json());
+
+    const data = ConvertPF.toPriorityFees(await response.text());
+    // console.log(data);
+
+    priorityFees.set(data);
+    feePriority.set('high');
+    feeRate.set(data.high.feeRate);
+    rateUSD.set(data.rateUSD);
+    // console.log('setting priority fees to', $feePriority, $feeRate);
   }
 </script>
 

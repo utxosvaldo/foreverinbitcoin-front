@@ -51,6 +51,7 @@ export const totalAmount = writable<number>(890)
 // order_status: int = 0
 // order_type: str = "image"
 // invoice_id: str = ""
+export const orderType = writable<string>("image")
 export const orderId = writable<string>("")
 export const checkoutLink = writable<string>("http://reddit.com")
 export const orderStatus = writable<number>(0)
