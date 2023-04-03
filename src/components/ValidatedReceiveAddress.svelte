@@ -21,24 +21,10 @@
       <CheckCircle size="30" variation="outline" class="pl-1" />
     {/if}
   </P>
-  <!-- <div class="  text-xs"> -->
   <P size="sm" color="currentColor" class="block text-center font-mono"
     >{receiveAddressFirst}</P
   >
   <P size="sm" color="currentColor" class="block text-center font-mono"
     >{receiveAddressSecond}</P
   >
-  <!-- </div> -->
 </div>
-<!-- <Button outline color="purple" class="mt-- bg-purple-50 hover:bg-purple-50">
-  <div class="font-thin  text-xs">
-    <Span class="block">{receiveAddressFirst}</Span>
-    <Span class="block">{receiveAddressSecond}</Span>
-  </div>
-</Button>
-<Card class="bg-blue">
-  <div class="font-thin  text-xs">
-    <Span class="block">{receiveAddressFirst}</Span>
-    <Span class="block">{receiveAddressSecond}</Span>
-  </div>
-</Card> -->

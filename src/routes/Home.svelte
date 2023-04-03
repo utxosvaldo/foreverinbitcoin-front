@@ -9,12 +9,21 @@
   import ReceiveAddressInput from '../components/ReceiveAddressInput.svelte';
   import PaymentStatus from '../components/PaymentStatus.svelte';
 
-  import { fileName, orderStatus, orderId, feeRate } from '../stores';
+  import {
+    fileName,
+    orderStatus,
+    orderId,
+    feeRate,
+    receiveAddress
+  } from '../stores';
   import InscribeButton from '../components/InscribeButton.svelte';
   import BackUpAlert from '../components/alerts/BackUpAlert.svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
   import NavBar from '../components/NavBar.svelte';
   import Footer from '../components/Footer.svelte';
+  import HiroConnectButton from '../components/wallets/HiroConnectButton.svelte';
+  import ValidatedReceiveAddress from '../components/ValidatedReceiveAddress.svelte';
+  import WalletReceiveAddress from '../components/WalletReceiveAddress.svelte';
 
   // $: showInscriptionPreview = $fileName !== '';
 </script>
@@ -37,6 +46,11 @@
         {/if}
       {:else}
         <InputTabs />
+      {/if}
+
+      {#if $receiveAddress != ''}
+        <WalletReceiveAddress />
+        <InscribeButton />
       {/if}
 
       {#if $feeRate !== 0}

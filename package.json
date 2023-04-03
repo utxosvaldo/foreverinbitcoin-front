@@ -32,11 +32,13 @@
     "vite": "^4.1.0-beta.1"
   },
   "dependencies": {
+    "@stacks/connect": "^7.2.1",
     "bech32": "^2.0.0",
     "filepond": "^4.30.4",
     "filepond-plugin-image-exif-orientation": "^1.0.11",
     "filepond-plugin-image-preview": "^4.6.11",
     "html2canvas": "^1.4.1",
+    "stackjs": "^1.0.0",
     "svelte-filepond": "^0.2.0"
   }
 }

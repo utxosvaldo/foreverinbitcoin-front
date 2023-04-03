@@ -7,6 +7,7 @@ export const previewFileName = writable<string>("")
 export const receiveAddress = writable<string>("")
 export const receiveAddressType = writable<string>("")
 export const focusedAddressInput = writable<boolean>(false)
+export const walletConnected = writable<boolean>(false)
 // receive_address: str = ""
 // receive_address_type: str = ""
 // is_receive_address_set: bool = False
