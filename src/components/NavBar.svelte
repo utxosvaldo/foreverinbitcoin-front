@@ -55,6 +55,6 @@
 
   <NavUl {hidden} divClass="w-full md:block md:w-auto">
     <NavLi href="/" active={true} activeClass="text-violet-700">Home</NavLi>
-    <NavLi href="/about" activeClass="text-violet-700">Orders</NavLi>
+    <NavLi href="/#/orders" activeClass="text-violet-700">Orders</NavLi>
   </NavUl>
 </Navbar>

@@ -61,6 +61,7 @@ export const orderStatus = writable<number>(0)
 export const rateUSD = writable<number>(0)
 export const loadingEstimateFees = writable<boolean>(false)
 export const uploadingText = writable<boolean>(false)
+export const loadingOrder = writable<boolean>(false)
 // checkout_link: str = ""
 
 //     # Order creation and processing

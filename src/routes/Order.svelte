@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DarkMode, Span } from 'flowbite-svelte';
+  import { Button, DarkMode, Span, Spinner } from 'flowbite-svelte';
   import { Card } from 'flowbite-svelte';
   // import FilePond from './components/FilePond.svelte';
   import Heading from '../components/Heading.svelte';
@@ -24,18 +24,28 @@
     inscriptionSentTx,
     checkoutLink,
     rateUSD,
-    orderType
+    orderType,
+    loadingOrder
   } from '../stores';
   import { onMount } from 'svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
   import NavBar from '../components/NavBar.svelte';
   import Footer from '../components/Footer.svelte';
+  import { Envelope } from 'svelte-heros-v2';
 
   export let params = {};
 
+  $: supportLink = `mailto:support@foreverinbitcoin.com?subject=ForeverinBitcoin order: ${params.orderId} not found`;
+
   async function fetchOrder() {
+    $loadingOrder = true;
     const response = await fetch(`/api/orders/${params.orderId}`);
     // data = await response.json();
+    if (response.status != 200) {
+      // No order found
+      $loadingOrder = false;
+    }
+
     const data = ConvertOrder.toOrder(await response.text());
     console.log('data', data);
 
@@ -53,6 +63,8 @@
     inscriptionSentTx.set(data.inscriptionSentTx);
     checkoutLink.set(data.checkoutLink);
     rateUSD.set(data.rateUSD);
+
+    $loadingOrder = false;
   }
 
   onMount(fetchOrder);
@@ -67,10 +79,27 @@
   <Heading />
   <div class="flex justify-center pt-8">
     <Card class="items-center gap-2">
-      <InscriptionPreview />
-      <FeeTabConfirmed />
-      <BackUpAlert />
-      <PaymentStatus />
+      {#if $loadingOrder}
+        <Spinner color="purple" size="10" />
+      {:else if $orderId}
+        <InscriptionPreview />
+        <FeeTabConfirmed />
+        <BackUpAlert />
+        <PaymentStatus />
+      {:else}
+        <Span>No order found with order id:</Span>
+        <Span>{params.orderId}</Span>
+        <div class="flex mt-2">
+          <Button outline color="purple" class="mr-1" href={supportLink}>
+            <Envelope class="mr-3" />
+            Contact support
+          </Button>
+          <Button color="purple" class="ml-1" href={'/'}>
+            <!-- <Envelope class="mr-3" /> -->
+            Home
+          </Button>
+        </div>
+      {/if}
     </Card>
   </div>
   <Footer />
