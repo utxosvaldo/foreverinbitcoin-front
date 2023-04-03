@@ -1,5 +1,5 @@
 <script>
-  import { Textarea, Label, Button } from 'flowbite-svelte';
+  import { Textarea, Label, Button, Spinner } from 'flowbite-svelte';
   import { ConvertPF } from '../../interfaces/priorityFees';
   import { ConvertUTR } from '../../interfaces/uploadTextResponse';
   import {
@@ -9,12 +9,14 @@
     loadingEstimateFees,
     priorityFees,
     rateUSD,
-    text
+    text,
+    uploadingText
   } from '../../stores';
 
   $: disablePreview = $text == '';
 
   async function handleTextUpload() {
+    $uploadingText = true;
     if ($text == '') {
       console.log('No text');
       return;
@@ -33,6 +35,7 @@
     const data = ConvertUTR.toUploadTextResponse(await response.text());
 
     fileName.set(data.filename);
+    $uploadingText = false;
 
     await estimateFees();
   }
@@ -76,10 +79,15 @@
       class="w-full"
       bind:value={$text}
     />
+
     {#if disablePreview}
       <Button outline gradient color="purpleToPink" class="mt-2" disabled
         >Preview Inscription</Button
       >
+    {:else if $uploadingText}
+      <Button gradient color="purpleToPink" class="mt-2">
+        <Spinner class="mr-3" size="4" color="purple" />Loading ...
+      </Button>
     {:else}
       <Button
         gradient
