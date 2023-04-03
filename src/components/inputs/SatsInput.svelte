@@ -94,7 +94,7 @@
       >
     {:else if $uploadingText}
       <Button gradient color="purpleToPink" class="mt-2">
-        <Spinner class="mr-3" size="4" color="purple" />Loading ...
+        <Spinner class="mr-3" size="4" color="purple" />Preview Inscription
       </Button>
     {:else}
       <Button
