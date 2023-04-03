@@ -11,7 +11,13 @@
     text
   } from '../../stores';
 
+  $: disablePreview = $text == '';
+
   async function handleTextUpload() {
+    if ($text == '') {
+      console.log('No text');
+      return;
+    }
     const requestData = {
       sats_name: $text.toLowerCase() + '.sats'
     };
@@ -67,12 +73,17 @@
       />
       <InputAddon>.sats</InputAddon>
     </ButtonGroup>
-    <Button
-      outline
-      gradient
-      color="purpleToPink"
-      class="mt-2"
-      on:click={handleTextUpload}>Preview Inscription</Button
-    >
+    {#if disablePreview}
+      <Button outline gradient color="purpleToPink" class="mt-2" disabled
+        >Preview Inscription</Button
+      >
+    {:else}
+      <Button
+        gradient
+        color="purpleToPink"
+        class="mt-2"
+        on:click={handleTextUpload}>Preview Inscription</Button
+      >
+    {/if}
   </div>
 </div>

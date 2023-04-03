@@ -80,7 +80,9 @@
           <ReceiveAddressInput />
           <!-- <InscribeButton /> -->
         {/if}
-        <InscribeButton />
+        {#if $fileName != '' && $feeRate != 0}
+          <InscribeButton />
+        {/if}
       {/if}
     </Card>
   </div>

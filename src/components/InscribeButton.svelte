@@ -51,9 +51,9 @@
   }
 </script>
 
-<div class="mb-6 flex w-4/5">
+<div class="mb-2 w-full">
   {#if disableButton}
-    <Button gradient color="purpleToPink" class="w-full" disabled
+    <Button outline gradient color="purpleToPink" size="xl" disabled
       >Inscribe</Button
     >
   {:else}

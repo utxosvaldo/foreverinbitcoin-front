@@ -11,7 +11,13 @@
     text
   } from '../../stores';
 
+  $: disablePreview = $text == '';
+
   async function handleTextUpload() {
+    if ($text == '') {
+      console.log('No text');
+      return;
+    }
     const requestData = {
       text: $text
     };
@@ -64,12 +70,17 @@
       class="w-full"
       bind:value={$text}
     />
-    <Button
-      outline
-      gradient
-      color="purpleToPink"
-      class="mt-2"
-      on:click={handleTextUpload}>Preview Inscription</Button
-    >
+    {#if disablePreview}
+      <Button outline gradient color="purpleToPink" class="mt-2" disabled
+        >Preview Inscription</Button
+      >
+    {:else}
+      <Button
+        gradient
+        color="purpleToPink"
+        class="mt-2"
+        on:click={handleTextUpload}>Preview Inscription</Button
+      >
+    {/if}
   </div>
 </div>

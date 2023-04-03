@@ -25,7 +25,7 @@
   activeClasses="p-4 text-primary-600 border-b-2 border-primary-600 dark:text-primary-500 dark:border-primary-500"
   contentClass="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mt-4 w-full"
 >
-  <TabItem open on:click={setImage}>
+  <TabItem open={$orderType == 'image'} on:click={setImage}>
     <div slot="title" class="flex items-center gap-2">
       <Photo variation="solid" />
       Image
@@ -33,14 +33,14 @@
     <Filepond />
     <!-- <ImageInput /> -->
   </TabItem>
-  <TabItem on:click={setText}>
+  <TabItem open={$orderType == 'text'} on:click={setText}>
     <div slot="title" class="flex items-center gap-2">
       <PencilSquare variation="solid" />
       Text
     </div>
     <TextInput />
   </TabItem>
-  <TabItem on:click={setSatsName}>
+  <TabItem open={$orderType == 'sats'} on:click={setSatsName}>
     <div slot="title" class="flex items-center gap-2">
       <Tag variation="solid" />
       .sats
