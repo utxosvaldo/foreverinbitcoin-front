@@ -53,7 +53,7 @@
     };
 
     console.log(requestData);
-    const response = await fetch('/estimatefees', {
+    const response = await fetch('/api/estimatefees', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData)
@@ -75,7 +75,7 @@
   <FilePond
     bind:this={pond}
     {name}
-    server="/upload"
+    server="/api/upload"
     allowMultiple={false}
     oninit={handleInit}
     onaddfile={handleAddFile}

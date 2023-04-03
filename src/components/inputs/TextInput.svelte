@@ -17,7 +17,7 @@
     };
 
     console.log('text data: ', requestData);
-    const response = await fetch('/upload_text', {
+    const response = await fetch('/api/upload_text', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData)
@@ -36,7 +36,7 @@
     };
 
     console.log(requestData);
-    const response = await fetch('/estimatefees', {
+    const response = await fetch('/api/estimatefees', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData)

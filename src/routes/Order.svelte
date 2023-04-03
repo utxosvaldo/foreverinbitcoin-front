@@ -34,7 +34,7 @@
   export let params = {};
 
   async function fetchOrder() {
-    const response = await fetch(`/orders/${params.orderId}`);
+    const response = await fetch(`/api/orders/${params.orderId}`);
     // data = await response.json();
     const data = ConvertOrder.toOrder(await response.text());
     console.log('data', data);

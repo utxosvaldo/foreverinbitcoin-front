@@ -20,7 +20,7 @@
 
     console.log(requestData);
     // TODO get url from env var
-    const response = await fetch('/estimatefees', {
+    const response = await fetch('/api/estimatefees', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData)
