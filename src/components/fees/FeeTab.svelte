@@ -28,13 +28,13 @@
     Math.round((feeRateEstimate.totalAmount * $rateUSD) / 1e6) / 100;
 </script>
 
-<div class="flex justify-center p-1">
-  <div class="pr-1">
+<div class="grid grid-flow-col p-0 w-full justify-stretch">
+  <div class="mr-1 my-1 flex justify-end">
     <Badge border color="purple"
       ><Clock size="20" class="pr-1" />{timeEstimate}</Badge
     >
   </div>
-  <div class="pl-1">
+  <div class="ml-1 my-1 flex justify-start">
     <Badge border color="purple">
       {#if $feePriority == 'low'}
         <Square3Stack3d size="20" class="pr-1" />
@@ -51,34 +51,39 @@
   <TableBody>
     <TableBodyRow>
       <TableBodyCell>Network fee</TableBodyCell>
-      <TableBodyCell class="flex whitespace-nowrap">
-        <div>
-          {feeRateEstimate.networkFee.toLocaleString('en-US')} sats
-        </div>
-        <div class="pl-1 font-light">~ {networkFeeUSD.toFixed(2)} USD</div>
+      <TableBodyCell
+        tdClass="py-3 pl-6 pr-0 flex whitespace-nowrap justify-end"
+      >
+        {feeRateEstimate.networkFee.toLocaleString('en-US')} sats
+      </TableBodyCell>
+      <TableBodyCell tdClass="py-3 px-1 font-light text-xs">
+        ~{networkFeeUSD.toFixed(2)}USD
       </TableBodyCell>
     </TableBodyRow>
     <TableBodyRow>
       <TableBodyCell>Service fee</TableBodyCell>
-      <TableBodyCell class="flex whitespace-nowrap">
-        <div>
-          {feeRateEstimate.serviceFee.toLocaleString('en-US')} sats
-        </div>
-        <div class="pl-1 font-light">
-          ~ {serviceFeeUSD.toFixed(2)} USD
-        </div>
+      <TableBodyCell
+        tdClass="py-3 pl-6 pr-0 flex whitespace-nowrap justify-end"
+      >
+        {feeRateEstimate.serviceFee.toLocaleString('en-US')} sats
+      </TableBodyCell>
+      <TableBodyCell tdClass="py-3 px-1 font-light text-xs">
+        <!-- <Span class="font-light text-xs"> -->
+        ~{serviceFeeUSD.toFixed(2)}USD
+        <!-- </Span> -->
       </TableBodyCell>
     </TableBodyRow>
   </TableBody>
+
   <tfoot>
     <tr class="font-semibold text-gray-900 dark:text-white">
       <th scope="row" class="py-3 px-6 text-base">Total</th>
-      <td class="py-3 px-6 flex whitespace-nowrap">
-        <div>
-          {feeRateEstimate.totalAmount.toLocaleString('en-US')} sats
-        </div>
-        <div class="pl-1 font-light">~ {totalAmountUSD.toFixed(2)} USD</div>
-      </td>
+      <td class="py-3 pl-6 pr-0 flex whitespace-nowrap justify-end"
+        >{feeRateEstimate.totalAmount.toLocaleString('en-US')} sats</td
+      >
+      <td class="py-3 px-1 font-light text-xs"
+        >~{totalAmountUSD.toFixed(2)}USD</td
+      >
     </tr>
   </tfoot>
 </Table>

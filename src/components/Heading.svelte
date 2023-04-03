@@ -2,7 +2,7 @@
   import { Heading, P, Span } from 'flowbite-svelte';
 </script>
 
-<div>
+<div class="text-center">
   <Heading
     tag="h1"
     class="mb-4"

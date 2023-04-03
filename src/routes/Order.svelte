@@ -28,6 +28,7 @@
   } from '../stores';
   import { onMount } from 'svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
+  import NavBar from '../components/NavBar.svelte';
 
   export let params = {};
 
@@ -61,6 +62,7 @@
   id="main"
   class="p-8 overflow-auto bg-gray-50 dark:bg-gray-900 justify-start text-center"
 >
+  <NavBar />
   <Heading />
   <div class="flex justify-center pt-8">
     <Card class="items-center gap-2">
