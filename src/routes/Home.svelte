@@ -14,6 +14,7 @@
   import BackUpAlert from '../components/alerts/BackUpAlert.svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
   import NavBar from '../components/NavBar.svelte';
+  import Footer from '../components/Footer.svelte';
 
   // $: showInscriptionPreview = $fileName !== '';
 </script>
@@ -49,6 +50,7 @@
       {/if}
     </Card>
   </div>
+  <Footer />
 </div>
 
 <style>
