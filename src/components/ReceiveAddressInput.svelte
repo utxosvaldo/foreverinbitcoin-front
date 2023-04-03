@@ -110,9 +110,7 @@
         <ArrowLeftOnRectangle slot="left" class="text-red-700" />
         <input
           {...props}
-          on:focus={() => {
-            isAddressInputFocused = true;
-          }}
+          on:focus={focusReceiveAddress}
           bind:value={inputAddress}
           on:blur={validateAddress}
         />
