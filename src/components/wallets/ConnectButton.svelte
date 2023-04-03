@@ -10,7 +10,7 @@
   import { userSession } from '../../stacksUserSession';
   import { receiveAddress, walletConnected } from '../../stores';
   import { getAddress, GetAddressOptions } from 'sats-connect';
-  // import { getAuth, getAccount } from '@micro-stacks/svelte';
+  // import { generateBitcoinKey } from '../../connectMetamask';
 
   export function authenticate() {
     showConnect({
@@ -56,41 +56,6 @@
 
     await getAddress(getAddressOptions);
   }
-
-  // const auth = getAuth();
-
-  // $: label = $auth.isRequestPending
-  //   ? 'Loading...'
-  //   : $auth.isSignedIn
-  //   ? 'Sign out'
-  //   : 'Connect Stacks wallet';
-
-  // function onClick() {
-  //   if ($auth.isSignedIn) {
-  //     $auth.signOut();
-  //   } else {
-  //     $auth.openAuthRequest();
-  //     console.log($account);
-  //   }
-  // }
-
-  // interface Account {
-  //   appPrivateKey?: string;
-  //   stxAddress?: string;
-  //   rawAddress?: [number, Uint8Array];
-  //   identityAddress?: string;
-  //   decentralizedID?: string;
-  //   profileUrl?: string;
-  // }
-
-  // const account = getAccount();
-
-  // const appPrivateKey = $account.appPrivateKey;
-  // const stxAddress = $account.stxAddress;
-  // const rawAddress = $account.rawAddress;
-  // const identityAddress = $account.identityAddress;
-  // const decentralizedID = $account.decentralizedID;
-  // const profileUrl = $account.profileUrl;
 </script>
 
 <Button rounded id="connect-wallet" size="xs" color="purple">Connect</Button>

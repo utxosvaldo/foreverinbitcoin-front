@@ -15,7 +15,8 @@
     orderId,
     feeRate,
     receiveAddress,
-    walletConnected
+    walletConnected,
+    loadingEstimateFees
   } from '../stores';
   import InscribeButton from '../components/InscribeButton.svelte';
   import BackUpAlert from '../components/alerts/BackUpAlert.svelte';
@@ -38,37 +39,17 @@
   <Heading />
   <div class="flex justify-center pt-8">
     <Card class="items-center gap-2">
-      {#if $feeRate != 0}
+      {#if $fileName != ''}
         <InscriptionPreview />
-        {#if $orderId}
-          <FeeTabConfirmed />
-        {:else}
-          <FeeTabs />
-        {/if}
       {:else}
         <InputTabs />
       {/if}
 
-      <!-- {#if $receiveAddress != ''}
-        <WalletReceiveAddress />
-        <InscribeButton />
-      {/if} -->
-
-      <!-- {#if $feeRate !== 0}
-        {#if $orderStatus < 1}
-          <ReceiveAddressInput />
-          <InscribeButton />
-        {:else}
-          <BackUpAlert />
-          <PaymentStatus />
-        {/if}
-      {/if} -->
-
-      <!-- {#if $walletConnected}
-        <WalletReceiveAddress />
-      {:else}
-        <ReceiveAddressInput />
-      {/if} -->
+      {#if $orderId}
+        <FeeTabConfirmed />
+      {:else if $feeRate != 0 || $loadingEstimateFees}
+        <FeeTabs />
+      {/if}
 
       {#if $orderStatus >= 1}
         <BackUpAlert />

@@ -6,6 +6,7 @@
     feePriority,
     feeRate,
     fileName,
+    loadingEstimateFees,
     priorityFees,
     rateUSD,
     text
@@ -37,6 +38,9 @@
   }
 
   async function estimateFees() {
+    $loadingEstimateFees = true;
+    console.log('loading', $loadingEstimateFees);
+
     const requestData = {
       filename: $fileName
     };
@@ -56,6 +60,8 @@
     feePriority.set('high');
     feeRate.set(data.high.feeRate);
     rateUSD.set(data.rateUSD);
+    $loadingEstimateFees = false;
+
     // console.log('setting priority fees to', $feePriority, $feeRate);
   }
 </script>

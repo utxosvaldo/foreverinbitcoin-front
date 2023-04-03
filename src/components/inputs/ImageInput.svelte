@@ -5,12 +5,13 @@
     priorityFees,
     feeRate,
     feePriority,
-    rateUSD
+    rateUSD,
+    loadingEstimateFees
   } from '../../stores';
   import { ConvertPF } from '../../interfaces/priorityFees';
   import Filepond from '../Filepond.svelte';
 
-  $: disabled = $fileName == '';
+  // $: disabled = $fileName == '';
 
   async function estimateFees() {
     const requestData = {
@@ -20,6 +21,8 @@
 
     console.log(requestData);
     // TODO get url from env var
+    $loadingEstimateFees = true;
+    console.log('loading', $loadingEstimateFees);
     const response = await fetch('/api/estimatefees', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,6 +37,7 @@
     feePriority.set('high');
     feeRate.set(data.high.feeRate);
     rateUSD.set(data.rateUSD);
+    loadingEstimateFees.set(false);
     // console.log('setting priority fees to', $feePriority, $feeRate);
   }
 </script>
