@@ -68,9 +68,9 @@
     <span class="block text-sm">Connect your bitcoin wallet</span>
     <!-- <span class="block truncate text-sm font-medium"> Coming soon </span> -->
   </DropdownHeader>
-  <DropdownItem on:click={authenticate}>
+  <!-- <DropdownItem on:click={authenticate}>
     <img class="h-5" id="hiro-wallet" src="/hirowallet.svg" alt="Hiro Wallet" />
-  </DropdownItem>
+  </DropdownItem> -->
   <DropdownItem on:click={authXVerseWallet}>
     <img class="h-5" id="xverse-wallet" src="/xverse.svg" alt="Xverse Wallet" />
   </DropdownItem>
