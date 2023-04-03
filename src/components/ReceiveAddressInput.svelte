@@ -14,6 +14,7 @@
   import { receiveAddress, receiveAddressType } from '../stores';
   import FocusedAddressInput from './FocusedAddressInput.svelte';
   import ValidatedReceiveAddress from './ValidatedReceiveAddress.svelte';
+  import ConnectButton from './wallets/ConnectButton.svelte';
 
   let inputAddress = '';
   let showInvalidAddressAlert = false;
@@ -70,16 +71,19 @@
         </Label>
 
         {#if !focusedAddressInput}
-          <Input
-            let:props
-            id="receiveAddress"
-            placeholder="bc1p... | bc1q..."
-            class="bg-primary-50"
-            size="md"
-          >
-            <ArrowLeftOnRectangle slot="left" />
-            <input {...props} on:focus={focusReceiveAddress} />
-          </Input>
+          <div class="flex">
+            <Input
+              let:props
+              id="receiveAddress"
+              placeholder="bc1p... | bc1q..."
+              class="bg-primary-50"
+              size="md"
+            >
+              <ArrowLeftOnRectangle slot="left" />
+              <input {...props} on:focus={focusReceiveAddress} />
+            </Input>
+            <ConnectButton />
+          </div>
         {:else}
           <FocusedAddressInput
             bind:input={inputAddress}
@@ -106,7 +110,9 @@
         <ArrowLeftOnRectangle slot="left" class="text-red-700" />
         <input
           {...props}
-          on:focus={focusReceiveAddress}
+          on:focus={() => {
+            isAddressInputFocused = true;
+          }}
           bind:value={inputAddress}
           on:blur={validateAddress}
         />

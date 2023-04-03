@@ -30,9 +30,9 @@
   >{buttonAddress}</Button
 >
 <Dropdown placement="bottom" triggeredBy="#wallet">
-  <DropdownHeader>
+  <!-- <DropdownHeader>
     <span class="block text-sm">Connect your bitcoin wallet</span>
     <span class="block truncate text-sm font-medium"> Coming soon </span>
-  </DropdownHeader>
+  </DropdownHeader> -->
   <DropdownItem on:click={disconnect}>Disconnect</DropdownItem>
 </Dropdown>

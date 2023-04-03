@@ -76,7 +76,7 @@
       {:else}
         {#if $walletConnected}
           <WalletReceiveAddress />
-        {:else}
+        {:else if $feeRate != 0}
           <ReceiveAddressInput />
           <!-- <InscribeButton /> -->
         {/if}
