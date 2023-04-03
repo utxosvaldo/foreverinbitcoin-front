@@ -19,7 +19,10 @@
 </script>
 
 <!-- <DarkMode /> -->
-<div id="main" class="relative p-8 overflow-auto justify-start text-center">
+<div
+  id="main"
+  class="relative px-2 sm:px-5 py-4 overflow-auto justify-start text-center"
+>
   <NavBar />
   <Heading />
   <div class="flex justify-center pt-8">

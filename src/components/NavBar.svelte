@@ -15,22 +15,23 @@
   import { Wallet } from 'svelte-heros-v2';
 </script>
 
-<Navbar let:hidden let:toggle rounded color="purple" class="mb-6">
+<Navbar let:hidden let:toggle rounded color="purple" class="mb-6 py-0">
   <NavBrand href="/">
     <img
       src="foreverinbitcoin-transp.png"
-      class="mr-3 h-6 sm:h-9"
+      class="mr-3 h-9 sm:h-9"
       alt="Flowbite Logo"
     />
     <span
-      class="self-center whitespace-nowrap text-xl font-semibold dark:text-white"
+      class="self-center whitespace-nowrap text-md sm:text-lg font-semibold dark:text-white"
       >ForeverinBitcoin</span
     >
   </NavBrand>
   <div class="flex items-center md:order-2">
-    <Button id="connect-wallet" size="xs" color="purple"
-      ><Wallet class="mr-1" /> Connect</Button
-    >
+    <Button rounded id="connect-wallet" size="xs" color="purple">
+      <!-- <Wallet class="mr-1" />  -->
+      Connect
+    </Button>
 
     <NavHamburger
       on:click={toggle}
@@ -48,7 +49,7 @@
     <!-- <DropdownDivider />
     <DropdownItem>help</DropdownItem> -->
   </Dropdown>
-  <NavUl {hidden}>
+  <NavUl {hidden} divClass="w-full md:block md:w-auto">
     <NavLi href="/" active={true} activeClass="text-violet-700">Home</NavLi>
     <NavLi href="/about" activeClass="text-violet-700">Orders</NavLi>
     <!-- <NavLi href="/services" activeClass="text-violet-700">FAQs</NavLi> -->

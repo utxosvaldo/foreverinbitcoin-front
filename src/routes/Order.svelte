@@ -60,7 +60,7 @@
 <!-- <DarkMode /> -->
 <div
   id="main"
-  class="p-8 overflow-auto bg-gray-50 dark:bg-gray-900 justify-start text-center"
+  class="relative px-2 sm:px-5 py-4 overflow-auto justify-start text-center"
 >
   <NavBar />
   <Heading />
