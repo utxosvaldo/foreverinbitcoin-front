@@ -51,7 +51,7 @@
   <NavUl {hidden}>
     <NavLi href="/" active={true} activeClass="text-violet-700">Home</NavLi>
     <NavLi href="/about" activeClass="text-violet-700">Orders</NavLi>
-    <NavLi href="/services" activeClass="text-violet-700">FAQs</NavLi>
+    <!-- <NavLi href="/services" activeClass="text-violet-700">FAQs</NavLi> -->
     <!-- <NavLi href="/pricing">Pricing</NavLi>
     <NavLi href="/contact">Contact</NavLi> -->
   </NavUl>
