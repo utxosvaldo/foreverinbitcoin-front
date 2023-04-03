@@ -32,11 +32,15 @@
     "vite": "^4.1.0-beta.1"
   },
   "dependencies": {
+    "@bitcoinerlab/secp256k1": "^1.0.2",
     "@micro-stacks/svelte": "^1.0.7",
     "@stacks/connect": "^7.2.1",
     "bech32": "^2.0.0",
+    "bip32": "^4.0.0",
+    "bitcoinjs-lib": "^6.1.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
+    "ethers": "^6.2.3",
     "events": "^3.3.0",
     "filepond": "^4.30.4",
     "filepond-plugin-image-exif-orientation": "^1.0.11",
@@ -44,6 +48,7 @@
     "html2canvas": "^1.4.1",
     "process": "^0.11.10",
     "sats-connect": "^0.1.11",
+    "segwit": "github:generative-xyz/generative-segwit-sdk#0.1.0",
     "stackjs": "^1.0.0",
     "stream-browserify": "^3.0.0",
     "svelte-filepond": "^0.2.0",
