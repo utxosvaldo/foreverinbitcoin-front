@@ -10,6 +10,7 @@
   import { userSession } from '../../stacksUserSession';
   import { receiveAddress, walletConnected } from '../../stores';
   import { getAddress, GetAddressOptions } from 'sats-connect';
+  // import { getAuth, getAccount } from '@micro-stacks/svelte';
 
   export function authenticate() {
     showConnect({
@@ -36,7 +37,7 @@
     const getAddressOptions = {
       payload: {
         purposes: ['ordinals'],
-        message: 'Address for receiving Ordinals and payments',
+        message: 'Address for receiving Ordinals',
         network: {
           type: 'Mainnet'
         }
@@ -55,6 +56,41 @@
 
     await getAddress(getAddressOptions);
   }
+
+  // const auth = getAuth();
+
+  // $: label = $auth.isRequestPending
+  //   ? 'Loading...'
+  //   : $auth.isSignedIn
+  //   ? 'Sign out'
+  //   : 'Connect Stacks wallet';
+
+  // function onClick() {
+  //   if ($auth.isSignedIn) {
+  //     $auth.signOut();
+  //   } else {
+  //     $auth.openAuthRequest();
+  //     console.log($account);
+  //   }
+  // }
+
+  // interface Account {
+  //   appPrivateKey?: string;
+  //   stxAddress?: string;
+  //   rawAddress?: [number, Uint8Array];
+  //   identityAddress?: string;
+  //   decentralizedID?: string;
+  //   profileUrl?: string;
+  // }
+
+  // const account = getAccount();
+
+  // const appPrivateKey = $account.appPrivateKey;
+  // const stxAddress = $account.stxAddress;
+  // const rawAddress = $account.rawAddress;
+  // const identityAddress = $account.identityAddress;
+  // const decentralizedID = $account.decentralizedID;
+  // const profileUrl = $account.profileUrl;
 </script>
 
 <Button rounded id="connect-wallet" size="xs" color="purple">Connect</Button>
@@ -72,6 +108,7 @@
     <img class="h-5" id="hiro-wallet" src="/hirowallet.svg" alt="Hiro Wallet" />
   </DropdownItem> -->
   <DropdownItem on:click={authXVerseWallet}>
+    <!-- <DropdownItem on:click={onClick}> -->
     <img class="h-5" id="xverse-wallet" src="/xverse.svg" alt="Xverse Wallet" />
   </DropdownItem>
   <DropdownItem>

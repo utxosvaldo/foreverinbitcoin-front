@@ -6,7 +6,7 @@
     DropdownItem
   } from 'flowbite-svelte';
   import { receiveAddress, walletConnected } from '../../stores';
-  import { userSession } from '../../stacksUserSession';
+  // import { userSession } from '../../stacksUserSession';
 
   function shortenAddress(address) {
     if (address.length <= 12) {
@@ -20,8 +20,9 @@
   $: buttonAddress = shortenAddress($receiveAddress);
 
   export function disconnect() {
-    userSession.signUserOut('/');
+    // userSession.signUserOut('/');
     walletConnected.set(false);
+    receiveAddress.set('');
   }
 </script>
 
