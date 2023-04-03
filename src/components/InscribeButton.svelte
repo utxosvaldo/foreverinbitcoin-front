@@ -17,7 +17,7 @@
   } from '../stores';
   import { ConvertOrder } from '../interfaces/order';
 
-  $: disableButton = $fileName == '' || $receiveAddress == '';
+  $: disableButton = $fileName == '' || $receiveAddress == '' || $feeRate == 0;
 
   async function createOrder() {
     const requestData = {

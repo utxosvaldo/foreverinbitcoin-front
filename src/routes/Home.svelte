@@ -14,7 +14,8 @@
     orderStatus,
     orderId,
     feeRate,
-    receiveAddress
+    receiveAddress,
+    walletConnected
   } from '../stores';
   import InscribeButton from '../components/InscribeButton.svelte';
   import BackUpAlert from '../components/alerts/BackUpAlert.svelte';
@@ -48,12 +49,12 @@
         <InputTabs />
       {/if}
 
-      {#if $receiveAddress != ''}
+      <!-- {#if $receiveAddress != ''}
         <WalletReceiveAddress />
         <InscribeButton />
-      {/if}
+      {/if} -->
 
-      {#if $feeRate !== 0}
+      <!-- {#if $feeRate !== 0}
         {#if $orderStatus < 1}
           <ReceiveAddressInput />
           <InscribeButton />
@@ -61,6 +62,25 @@
           <BackUpAlert />
           <PaymentStatus />
         {/if}
+      {/if} -->
+
+      <!-- {#if $walletConnected}
+        <WalletReceiveAddress />
+      {:else}
+        <ReceiveAddressInput />
+      {/if} -->
+
+      {#if $orderStatus >= 1}
+        <BackUpAlert />
+        <PaymentStatus />
+      {:else}
+        {#if $walletConnected}
+          <WalletReceiveAddress />
+        {:else}
+          <ReceiveAddressInput />
+          <!-- <InscribeButton /> -->
+        {/if}
+        <InscribeButton />
       {/if}
     </Card>
   </div>
