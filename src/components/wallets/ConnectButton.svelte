@@ -14,7 +14,7 @@
     showConnect({
       appDetails: {
         name: 'Forever in Bitcoin',
-        icon: 'http://localhost/foreverinbitcoin-transp.png'
+        icon: window.location.origin + '/foreverinbitcoin-transp.png'
       },
       //   redirectTo: '/',
       onFinish: () => {
