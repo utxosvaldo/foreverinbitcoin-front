@@ -7,31 +7,31 @@
   } from 'flowbite-svelte';
   import HiroConnectButton from './HiroConnectButton.svelte';
   import { showConnect } from '@stacks/connect';
-  import { userSession } from '../../stacksUserSession';
+  // import { userSession } from '../../stacksUserSession';
   import { receiveAddress, walletConnected } from '../../stores';
-  import { getAddress, GetAddressOptions } from 'sats-connect';
+  import { getAddress } from 'sats-connect';
   // import { generateBitcoinKey } from '../../connectMetamask';
 
-  export function authenticate() {
-    showConnect({
-      appDetails: {
-        name: 'Forever in Bitcoin',
-        icon: window.location.origin + '/foreverinbitcoin-transp.png'
-      },
-      //   redirectTo: '/',
-      onFinish: () => {
-        // window.location.reload();
-        let ordinalAddress =
-          userSession.loadUserData().profile.btcAddress.p2tr.mainnet;
-        console.log('ordinals address:', ordinalAddress);
-        receiveAddress.set(ordinalAddress);
-        walletConnected.set(true);
-        console.log('$receive address = ', $receiveAddress);
-        console.log('wallet connected: ', $walletConnected);
-      },
-      userSession
-    });
-  }
+  // export function authenticate() {
+  //   showConnect({
+  //     appDetails: {
+  //       name: 'Forever in Bitcoin',
+  //       icon: window.location.origin + '/foreverinbitcoin-transp.png'
+  //     },
+  //     //   redirectTo: '/',
+  //     onFinish: () => {
+  //       // window.location.reload();
+  //       let ordinalAddress =
+  //         userSession.loadUserData().profile.btcAddress.p2tr.mainnet;
+  //       console.log('ordinals address:', ordinalAddress);
+  //       receiveAddress.set(ordinalAddress);
+  //       walletConnected.set(true);
+  //       console.log('$receive address = ', $receiveAddress);
+  //       console.log('wallet connected: ', $walletConnected);
+  //     },
+  //     userSession
+  //   });
+  // }
 
   export async function authXVerseWallet() {
     const getAddressOptions = {

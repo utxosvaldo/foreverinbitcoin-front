@@ -33,7 +33,13 @@
   import Footer from '../components/Footer.svelte';
   import { Envelope } from 'svelte-heros-v2';
 
-  export let params = {};
+  interface QueryParams {
+    orderId: number;
+  }
+
+  export let params: QueryParams = {
+    orderId: 0
+  };
 
   $: supportLink = `mailto:support@foreverinbitcoin.com?subject=ForeverinBitcoin order: ${params.orderId} not found`;
 
@@ -44,9 +50,11 @@
     if (response.status != 200) {
       // No order found
       $loadingOrder = false;
+      return;
     }
 
     const data = ConvertOrder.toOrder(await response.text());
+
     console.log('data', data);
 
     fileName.set(data.filename);
