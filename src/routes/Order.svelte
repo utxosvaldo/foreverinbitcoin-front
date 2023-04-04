@@ -91,6 +91,7 @@
         <Spinner color="purple" size="10" />
       {:else if $orderId}
         <InscriptionPreview />
+        <PaymentStatus />
         <FeeTabConfirmed />
         <BackUpAlert />
         <PaymentStatus />
