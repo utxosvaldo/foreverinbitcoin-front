@@ -94,7 +94,7 @@
         <PaymentStatus />
         <FeeTabConfirmed />
         <BackUpAlert />
-        <PaymentStatus />
+        <!-- <PaymentStatus /> -->
       {:else}
         <Span>No order found with order id:</Span>
         <Span>{params.orderId}</Span>
