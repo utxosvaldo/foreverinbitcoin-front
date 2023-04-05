@@ -11,7 +11,7 @@
     loadingEstimateFees
   } from '../stores';
 
-  $: inscriptionLink = `https://ordinals.com/inscription/${$inscriptionId}`;
+  $: inscriptionLink = `https://ordinalswallet.com/inscription/${$inscriptionId}`;
 
   $: previewFileName = $fileName
     .replace('.txt', '.html')
