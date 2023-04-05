@@ -13,16 +13,16 @@
   footerType="custom"
   customClass="p-4 bg-transparent md:flex md:items-center md:justify-center md:p-6 dark:bg-gray-800"
 >
-  <FooterCopyright
-    href="/"
-    by="ForeverinBitcoin"
-    year={2023}
-    copyrightMessage={''}
-  />
-  <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+  <div class="flex mt-4 space-x-6 justify-center sm:mt-0">
+    <FooterCopyright
+      href="/"
+      by="ForeverinBitcoin"
+      year={2023}
+      copyrightMessage={''}
+    />
     <FooterIcon
       href="https://twitter.com/ForeverinBTC"
-      class="text-gray-400 hover:text-gray-900"
+      class="text-gray-400 hover:text-violet-500"
       target="_blank"
     >
       <svg
