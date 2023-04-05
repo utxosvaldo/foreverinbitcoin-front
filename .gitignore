@@ -27,4 +27,4 @@ dist-ssr
 
 # inscriptions files
 public/content/
-public/preview/
+public/tmp/
