@@ -5,13 +5,11 @@
   import {
     fileName,
     orderStatus,
-    inscriptionId,
     feeRate,
     orderType,
     loadingEstimateFees
   } from '../stores';
-
-  $: inscriptionLink = `https://ordinalswallet.com/inscription/${$inscriptionId}`;
+  import SeeInscriptionButton from './SeeInscriptionButton.svelte';
 
   $: previewFileName = $fileName
     .replace('.txt', '.html')
@@ -70,13 +68,8 @@
 
   {#if $orderStatus == 8}
     <Badge border color="purple" class="mt-2">Order complete</Badge>
-    <Button
-      gradient
-      color="purpleToPink"
-      class="mt-2 mb-3 w-2/3"
-      href={inscriptionLink}
-      target="_blank">See your inscription</Button
-    >
+
+    <SeeInscriptionButton />
   {/if}
 
   {#if $orderStatus < 1}
