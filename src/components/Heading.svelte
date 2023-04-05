@@ -2,7 +2,7 @@
   import { Heading, P, Span } from 'flowbite-svelte';
 </script>
 
-<div class="text-center my-20">
+<div class="text-center my-5">
   <!-- <div class="flex justify-center pb-4">
     <img
       src="foreverinbitcoin-transp.png"
@@ -19,7 +19,7 @@
 
   <Heading
     tag="h1"
-    class="mb-4"
+    class="mb-2"
     customSize="text-4xl sm:text-5xl   md:text-6xl lg:text-7xl"
     ><Span
       class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 whitespace-nowrap"

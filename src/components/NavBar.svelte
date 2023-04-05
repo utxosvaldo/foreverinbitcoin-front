@@ -28,7 +28,7 @@
   $: buttonAddress = shortenAddress($receiveAddress);
 </script>
 
-<Navbar let:hidden let:toggle rounded color="purple" class="mb-6 py-0">
+<Navbar let:hidden let:toggle rounded color="purple" class="mb-3 py-0">
   <NavBrand href="/">
     <img
       src="foreverinbitcoin-transp.png"
