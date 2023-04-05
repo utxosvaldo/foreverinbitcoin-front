@@ -7,7 +7,8 @@
     orderStatus,
     inscriptionId,
     feeRate,
-    orderType
+    orderType,
+    loadingEstimateFees
   } from '../stores';
 
   $: inscriptionLink = `https://ordinals.com/inscription/${$inscriptionId}`;
@@ -16,10 +17,37 @@
     .replace('.txt', '.html')
     .replace('.json', '.html');
 
-  const cancelPreview = () => {
+  let imageSrc: string;
+  let iframeSrc: string;
+
+  $: {
+    if ($orderStatus < 1) {
+      imageSrc = '/tmp/' + $fileName;
+      iframeSrc = '/tmp/preview/' + previewFileName;
+    } else {
+      imageSrc = '/content/' + $fileName;
+      iframeSrc = '/content/preview/' + previewFileName;
+    }
+  }
+
+  async function cancelPreview() {
+    // delete request
+    const requestData = {
+      filename: $fileName
+    };
+
+    console.log(requestData);
+    const response = await fetch('/api/preview', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestData)
+    });
+    console.log(await response.text());
+
     $fileName = '';
     $feeRate = 0;
-  };
+    $loadingEstimateFees = false;
+  }
 </script>
 
 {#if $orderStatus != 8}
@@ -29,15 +57,11 @@
   <div class="flex justify-center mb-3 ">
     {#if $orderType == 'image'}
       <div class="fancy-border">
-        <img
-          src={`/content/${$fileName}`}
-          class="drop-shadow-xl"
-          alt="Not found"
-        />
+        <img src={imageSrc} class="drop-shadow-xl" alt="Not found" />
       </div>
     {:else}
       <iframe
-        src={`/preview/${previewFileName}`}
+        src={iframeSrc}
         title="Text inscription preview"
         class="w-full aspect-square drop-shado-xl fancy-border"
       />

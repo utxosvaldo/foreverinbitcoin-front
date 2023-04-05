@@ -9,6 +9,8 @@
 
   // Import the File Type Validation plugin
   import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+  import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
+  import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
 
   import {
     feePriority,
@@ -24,7 +26,9 @@
   registerPlugin(
     FilePondPluginImageExifOrientation,
     FilePondPluginImagePreview,
-    FilePondPluginFileValidateType
+    FilePondPluginFileValidateType,
+    FilePondPluginFileValidateSize,
+    FilePondPluginImageCrop
   );
 
   // a reference to the component, used to call FilePond methods
@@ -90,6 +94,7 @@
     onaddfile={handleAddFile}
     onprocessfile={handleProcessFile}
     acceptedFileTypes={'image/*'}
+    maxFileSize={'350KB'}
   />
 </div>
 
