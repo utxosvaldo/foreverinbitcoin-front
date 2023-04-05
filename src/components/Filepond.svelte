@@ -6,6 +6,10 @@
   // `npm i filepond-plugin-image-preview filepond-plugin-image-exif-orientation --save`
   import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
   import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+
+  // Import the File Type Validation plugin
+  import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+
   import {
     feePriority,
     feeRate,
@@ -19,7 +23,8 @@
   // Register the plugins
   registerPlugin(
     FilePondPluginImageExifOrientation,
-    FilePondPluginImagePreview
+    FilePondPluginImagePreview,
+    FilePondPluginFileValidateType
   );
 
   // a reference to the component, used to call FilePond methods
@@ -84,6 +89,7 @@
     oninit={handleInit}
     onaddfile={handleAddFile}
     onprocessfile={handleProcessFile}
+    acceptedFileTypes={'image/*'}
   />
 </div>
 
