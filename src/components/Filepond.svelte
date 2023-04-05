@@ -95,6 +95,7 @@
     onprocessfile={handleProcessFile}
     acceptedFileTypes={'image/*'}
     maxFileSize={'350KB'}
+    labelIdle={'Drag & Drop your images or <span class="filepond--label-action"> Browse</span>'}
   />
 </div>
 
