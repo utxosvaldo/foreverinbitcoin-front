@@ -23,6 +23,7 @@
     <FooterIcon
       href="https://twitter.com/ForeverinBTC"
       class="text-gray-400 hover:text-gray-900"
+      target="_blank"
     >
       <svg
         class="w-6 h-6"
