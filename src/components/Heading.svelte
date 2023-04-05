@@ -2,7 +2,14 @@
   import { Heading, P, Span } from 'flowbite-svelte';
 </script>
 
-<div class="text-center">
+<div class="text-center my-20">
+  <!-- <div class="flex justify-center pb-4">
+    <img
+      src="foreverinbitcoin-transp.png"
+      class=" justify-center h-20"
+      alt="Flowbite Logo"
+    />
+  </div> -->
   <Heading
     tag="h1"
     class="mb-4"
