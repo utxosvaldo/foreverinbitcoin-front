@@ -7,7 +7,9 @@
     orderStatus,
     feeRate,
     orderType,
-    loadingEstimateFees
+    loadingEstimateFees,
+    inscriptionId,
+    inscriptionNumber
   } from '../stores';
   import SeeInscriptionButton from './SeeInscriptionButton.svelte';
 
@@ -49,7 +51,12 @@
 </script>
 
 {#if $orderStatus != 8}
+  <!-- {#if false} -->
   <Heading class="text-lg mb-1">Inscription Preview</Heading>
+{:else}
+  <Heading class="text-lg mb-1"
+    >Inscription #{$inscriptionNumber.toLocaleString('en-US')}</Heading
+  >
 {/if}
 <div class="p-4 bg-primary-50 rounded-lg dark:bg-gray-800 mb-4  w-full">
   <div class="flex justify-center mb-3 ">

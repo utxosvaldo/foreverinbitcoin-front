@@ -71,6 +71,7 @@ export const loadingOrder = writable<boolean>(false)
 
 //     # Inscription
 export const inscriptionId = writable<string>("")
+export const inscriptionNumber = writable<number>(0)
 export const inscriptionSentTx = writable<string>("")
 
 

@@ -25,7 +25,8 @@
     checkoutLink,
     rateUSD,
     orderType,
-    loadingOrder
+    loadingOrder,
+    inscriptionNumber
   } from '../stores';
   import { onMount } from 'svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
@@ -68,6 +69,7 @@
     totalAmount.set(data.totalAmount);
     feePriority.set(data.feePriority);
     inscriptionId.set(data.inscriptionId);
+    inscriptionNumber.set(data.inscriptionNumber);
     inscriptionSentTx.set(data.inscriptionSentTx);
     checkoutLink.set(data.checkoutLink);
     rateUSD.set(data.rateUSD);

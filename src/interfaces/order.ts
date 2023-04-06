@@ -20,6 +20,7 @@ export interface Order {
     serviceFee: number;
     totalAmount: number;
     inscriptionId: string;
+    inscriptionNumber: number;
     inscriptionSentTx: string;
     rateUSD: number;
 }
@@ -202,6 +203,7 @@ const typeMap: any = {
         { json: "serviceFee", js: "serviceFee", typ: 0 },
         { json: "totalAmount", js: "totalAmount", typ: 0 },
         { json: "inscriptionId", js: "inscriptionId", typ: "" },
+        { json: "inscriptionNumber", js: "inscriptionNumber", typ: 0 },
         { json: "inscriptionSentTx", js: "inscriptionSentTx", typ: "" },
         { json: "rateUSD", js: "rateUSD", typ: 0 },
     ], false),
