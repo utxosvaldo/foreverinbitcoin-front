@@ -33,7 +33,7 @@
     <img
       src="foreverinbitcoin-transp.png"
       class="mr-3 h-9 sm:h-9"
-      alt="Flowbite Logo"
+      alt="ForeverinBitcoin Logo"
     />
     <span
       class="self-center whitespace-nowrap text-md sm:text-lg font-semibold dark:text-white"
