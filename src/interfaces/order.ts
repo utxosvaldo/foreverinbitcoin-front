@@ -22,6 +22,7 @@ export interface Order {
     inscriptionId: string;
     inscriptionNumber: number;
     inscriptionSentTx: string;
+    revealTx: string;
     rateUSD: number;
 }
 
@@ -205,6 +206,7 @@ const typeMap: any = {
         { json: "inscriptionId", js: "inscriptionId", typ: "" },
         { json: "inscriptionNumber", js: "inscriptionNumber", typ: 0 },
         { json: "inscriptionSentTx", js: "inscriptionSentTx", typ: "" },
+        { json: "revealTx", js: "revealTx", typ: "" },
         { json: "rateUSD", js: "rateUSD", typ: 0 },
     ], false),
 };

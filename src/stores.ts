@@ -1,3 +1,4 @@
+import { write } from '@popperjs/core'
 import { writable } from 'svelte/store'
 import type { FeeRateEstimate, PriorityFees } from './interfaces/priorityFees'
 
@@ -54,6 +55,7 @@ export const totalAmount = writable<number>(890)
 // order_status: int = 0
 // order_type: str = "image"
 // invoice_id: str = ""
+export const discount = writable<number>(0)
 export const orderType = writable<string>("image")
 export const orderId = writable<string>("")
 export const checkoutLink = writable<string>("http://reddit.com")
@@ -73,6 +75,7 @@ export const loadingOrder = writable<boolean>(false)
 export const inscriptionId = writable<string>("")
 export const inscriptionNumber = writable<number>(0)
 export const inscriptionSentTx = writable<string>("")
+export const inscriptionRevealTx = writable<string>("")
 
 
 

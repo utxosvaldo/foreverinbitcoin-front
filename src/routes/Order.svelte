@@ -26,7 +26,8 @@
     rateUSD,
     orderType,
     loadingOrder,
-    inscriptionNumber
+    inscriptionNumber,
+    inscriptionRevealTx
   } from '../stores';
   import { onMount } from 'svelte';
   import FeeTabConfirmed from '../components/fees/FeeTabConfirmed.svelte';
@@ -71,6 +72,7 @@
     inscriptionId.set(data.inscriptionId);
     inscriptionNumber.set(data.inscriptionNumber);
     inscriptionSentTx.set(data.inscriptionSentTx);
+    inscriptionRevealTx.set(data.revealTx);
     checkoutLink.set(data.checkoutLink);
     rateUSD.set(data.rateUSD);
 

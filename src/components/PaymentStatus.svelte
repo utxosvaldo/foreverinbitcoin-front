@@ -7,13 +7,15 @@
     orderStatus,
     orderId,
     inscriptionId,
-    inscriptionSentTx
+    inscriptionSentTx,
+    inscriptionRevealTx
   } from '../stores';
 
   // let supportLink = 'mailto:support@foreverinbitcoin.com';
 
   // $orderStatus = 9;
   $: receiptLink = $checkoutLink + '/receipt';
+  $: revealTx = `https://mempool.space/tx/${$inscriptionRevealTx}`;
   $: sendTxLink = `https://mempool.space/tx/${$inscriptionSentTx}`;
   $: supportLink = `mailto:support@foreverinbitcoin.com?subject=ForeverinBitcoin order: ${$orderId}`;
 </script>
@@ -77,11 +79,28 @@
   {/if}
 
   {#if $orderStatus == 4}
-    <Card class="w-full">
+    <!-- <Card class="w-full">
       <div class=" w-full flex justify-around">
         <Spinner size="12" color="purple" class="text-center mr-3" />
         <div class="w-full grid justify-items-stretch">
           <strong>Processing Inscription...</strong>
+        </div>
+      </div>
+    </Card> -->
+    <Card class="w-full">
+      <div class=" w-full flex justify-around">
+        <Spinner size="12" color="purple" class="text-center mr-3" />
+        <div class="w-full grid justify-items-stretch">
+          <strong>Inscription sent to mempool, waiting confirmation...</strong>
+          <Button
+            gradient
+            color="purpleToPink"
+            class="mt-2"
+            href={revealTx}
+            target="_blank"
+          >
+            Follow your inscription
+          </Button>
         </div>
       </div>
     </Card>
