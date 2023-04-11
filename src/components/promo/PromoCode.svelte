@@ -15,7 +15,7 @@
     CheckCircle,
     ReceiptPercent
   } from 'svelte-heros-v2';
-  import { discount, promoCode } from '../../stores';
+  import { discount, orderStatus, promoCode } from '../../stores';
 
   let isInputOpen: boolean = false;
   let isPromoCodeValid: boolean = false;
@@ -59,7 +59,7 @@
         >
       </div>
     </Alert>
-  {:else}
+  {:else if $orderStatus < 1}
     <div class="mt-1 flex justify-end w-full pr-0">
       <!-- <Label for="input-addon" class="mb-2">Groupped with button</Label> -->
       <div class="flex border shadow w-full rounded mr-0">
