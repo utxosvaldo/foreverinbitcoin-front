@@ -13,7 +13,8 @@
     totalAmount,
     rateUSD,
     orderType,
-    receiveAddressType
+    receiveAddressType,
+    promoCode
   } from '../stores';
   import { ConvertOrder } from '../interfaces/order';
 
@@ -26,7 +27,8 @@
       receiveAddress: $receiveAddress,
       receiveAddressType: $receiveAddressType,
       feeRate: $feeRate,
-      feePriority: $feePriority
+      feePriority: $feePriority,
+      promoCode: $promoCode
     };
 
     console.log(requestData);

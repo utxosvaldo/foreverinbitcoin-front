@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Tabs, TabItem, Heading, Spinner } from 'flowbite-svelte';
+  import { Tabs, TabItem, Heading, Spinner, Button } from 'flowbite-svelte';
   import FeeTab from './FeeTab.svelte';
   import {
     Square3Stack3d,

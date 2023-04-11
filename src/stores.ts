@@ -56,6 +56,7 @@ export const totalAmount = writable<number>(890)
 // order_type: str = "image"
 // invoice_id: str = ""
 export const discount = writable<number>(0)
+export const promoCode = writable<string>("")
 export const orderType = writable<string>("image")
 export const orderId = writable<string>("")
 export const checkoutLink = writable<string>("http://reddit.com")
